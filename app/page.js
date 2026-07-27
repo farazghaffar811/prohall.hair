@@ -97,17 +97,17 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-content">
-          <div className="hero-kicker"><SparkIcon /> PROFESSIONAL RESULTS, MADE SIMPLE</div>
-          <h1>Healthy-looking hair starts with the <em>right ritual.</em></h1>
-          <p>Brazilian professional haircare designed to smooth, restore and protect every texture—with clear guidance at every step.</p>
+          <div className="hero-kicker"><SparkIcon /> BRAZILIAN PROFESSIONAL HAIRCARE</div>
+          <h1>Professional care.<br /><em>Remarkable hair.</em></h1>
+          <p>Targeted formulas for smoother, stronger and more luminous hair—created for professionals, made clear for everyone.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#products">Shop by concern <ArrowIcon /></a>
-            <a className="button secondary" href="#finder">Find my routine</a>
+            <a className="button primary" href="#products">Explore products <ArrowIcon /></a>
+            <a className="button secondary" href="#finder">Find your routine</a>
           </div>
           <div className="hero-trust">
-            <span><b>01</b> Formaldehyde-free smoothing</span>
-            <span><b>02</b> Professional-grade formulas</span>
-            <span><b>03</b> Guidance when you need it</span>
+            <span><b>01</b> Pro performance</span>
+            <span><b>02</b> Every texture</span>
+            <span><b>03</b> Expert guidance</span>
           </div>
         </div>
 
@@ -117,13 +117,13 @@ export default function Home() {
           </div>
           <div className="featured-product">
             <div className="featured-copy">
-              <small>BESTSELLER</small>
+              <small>PROHALL ICON</small>
               <strong>Select One</strong>
-              <span>Smoother, more manageable hair.</span>
+              <span>Long-lasting smoothing without formaldehyde.</span>
             </div>
             <img src="/images/select-one.jpg" alt="Prohall Select One" />
           </div>
-          <div className="hero-badge"><strong>20+</strong><span>years of<br />hair expertise</span></div>
+          <div className="hero-badge"><strong>20+</strong><span>years of<br />expertise</span></div>
         </div>
       </section>
 
