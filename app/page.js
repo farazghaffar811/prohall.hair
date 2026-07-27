@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -33,6 +33,21 @@ function Arrow() {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState(0);
+
+  useEffect(() => {
+    document.documentElement.classList.add("motion-ready");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.12, rootMargin: "0px 0px -60px" }
+    );
+    document.querySelectorAll("[data-reveal]").forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main>
@@ -85,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="statement" id="ritual">
+      <section className="statement" id="ritual" data-reveal>
         <p className="eyebrow center"><i /> THE PROHALL DIFFERENCE</p>
         <h2>We don’t tame hair.<br />We <em>understand</em> it.</h2>
         <p>Born in Brazil and trusted by professionals, our formulas pair advanced hair science with restorative ingredients—so every texture can look and feel its strongest.</p>
@@ -97,13 +112,13 @@ export default function Home() {
       </section>
 
       <section className="products" id="products">
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div><p className="eyebrow"><i /> YOUR HAIR, YOUR RITUAL</p><h2>Meet the essentials.</h2></div>
           <a className="text-link" href="#support">View all products <span>→</span></a>
         </div>
         <div className="product-grid">
           {products.map((product, index) => (
-            <article className={`product-card ${product.className}`} key={product.name}>
+            <article className={`product-card ${product.className}`} key={product.name} data-reveal style={{"--delay": `${index * 120}ms`}}>
               <div className="card-top"><span>0{index + 1}</span><span>{product.note}</span></div>
               <div className="product-image"><img src={product.image} alt={`${product.name} product`} /></div>
               <div className="product-info">
@@ -116,11 +131,11 @@ export default function Home() {
       </section>
 
       <section className="results" id="results">
-        <div className="result-image">
+        <div className="result-image" data-reveal>
           <img src="/images/results.jpg" alt="Woman with healthy, sleek hair" />
           <span>REAL HAIR · REAL RESULTS</span>
         </div>
-        <div className="result-copy">
+        <div className="result-copy" data-reveal>
           <p className="eyebrow"><i /> TRANSFORMATION, NOT A QUICK FIX</p>
           <h2>Less frizz.<br />More <em>freedom.</em></h2>
           <p>Our professional-grade treatments work within the hair fiber—not just on the surface—to improve manageability, softness and shine that lasts.</p>
@@ -134,19 +149,19 @@ export default function Home() {
       </section>
 
       <section className="support" id="support">
-        <div>
+        <div data-reveal>
           <p className="eyebrow light"><i /> HERE WHEN YOU NEED US</p>
           <h2>Better hair starts<br />with better guidance.</h2>
         </div>
-        <div className="support-right">
+        <div className="support-right" data-reveal>
           <p>From choosing the right treatment to mastering every step, our product specialists are ready to help.</p>
           <a className="pill cream" href="mailto:support@prohall.hair">Talk to a specialist <Arrow /></a>
         </div>
       </section>
 
       <section className="faq" id="journal">
-        <div><p className="eyebrow"><i /> GOOD TO KNOW</p><h2>Your questions,<br /><em>answered.</em></h2></div>
-        <div className="accordions">
+        <div data-reveal><p className="eyebrow"><i /> GOOD TO KNOW</p><h2>Your questions,<br /><em>answered.</em></h2></div>
+        <div className="accordions" data-reveal>
           {[
             ["Which treatment is right for me?", "Select One is best for long-lasting smoothing, Force Hair supports weak or damaged hair, and Equalize restores pH and softness after chemical services."],
             ["Are Prohall treatments formaldehyde-free?", "Select One is presented as a formaldehyde-free smoothing treatment. Always review the product label and perform a strand and patch test before use."],
