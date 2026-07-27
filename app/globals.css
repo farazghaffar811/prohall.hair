@@ -330,8 +330,29 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .product-visual img { max-width: 88%; max-height: 86%; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.45s ease; }
 .product-card:hover .product-visual img { transform: scale(1.04); }
 .product-bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: end; gap: 16px; }
+.product-copy { min-width: 0; }
 .product-bottom p { margin: 0 0 5px; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
 .product-bottom h3 { margin: 0; font-size: clamp(22px, 2vw, 29px); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; }
+.product-claim { display: block; margin-top: 8px; color: var(--text-soft); font-size: 8px; line-height: 1.4; letter-spacing: 0.04em; }
+.product-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 9px; }
+.amazon-link {
+  min-height: 42px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.amazon-link svg { width: 15px; }
+.amazon-link:hover { transform: translateY(-2px); background: var(--teal-dark); }
 .circle-link {
   width: 46px;
   height: 46px;
@@ -562,7 +583,11 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .product-grid { grid-template-columns: 1fr; gap: 14px; }
   .product-card { min-height: 440px; padding: 16px; }
   .product-visual { height: 290px; }
+  .product-bottom { align-items: flex-end; }
+  .product-bottom:has(.amazon-link) { align-items: stretch; flex-direction: column; gap: 14px; }
+  .product-bottom:has(.amazon-link) .product-actions { justify-content: space-between; }
   .product-bottom h3 { font-size: 24px; }
+  .amazon-link { min-height: 40px; padding: 0 13px; }
   .routine { gap: 48px; }
   .routine-options > a { min-height: 132px; grid-template-columns: 26px 1fr 18px; gap: 12px; }
   .routine-options h3 { font-size: 18px; }

@@ -3,7 +3,18 @@
 import { useEffect, useMemo, useState } from "react";
 
 const products = [
-  { name: "Select One 10 oz", type: "Smoothing treatment", note: "Up to 6 months", image: "/images/select-one.jpg", tone: "mint", category: "Smoothing", href: "https://prohall.hair/prohall-select-one-10-oz-2/" },
+  {
+    name: "Select One",
+    type: "Brazilian keratin treatment",
+    note: "Up to 6 months",
+    size: "10.1 fl oz / 300 ml",
+    image: "/images/select-one.jpg",
+    tone: "mint",
+    category: "Smoothing",
+    href: "https://prohall.hair/prohall-select-one-10-oz-2/",
+    amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",
+    asin: "B0FMT1XNYT"
+  },
   { name: "Select One 3.4 oz", type: "Travel-size smoothing", note: "Formaldehyde-free", image: "/images/select-one.jpg", tone: "blue", category: "Smoothing", href: "https://prohall.hair/prohall-select-one-10-oz/" },
   { name: "Force Hair", type: "Strengthening system", note: "3-step ritual", image: "/images/force-hair-pack.webp", tone: "sky", category: "Repair", href: "https://prohall.hair/force-hair-2/" },
   { name: "Equalize", type: "pH balancing mask", note: "Repair + shine", image: "/images/equalize-pack.webp", tone: "mist", category: "Masks", href: "https://prohall.hair/equalize-mask/" },
@@ -159,17 +170,25 @@ export default function Home() {
             <article className={`product-card tone-${product.tone}`} key={product.name} style={{ "--delay": `${index * 65}ms` }}>
               <div className="product-meta">
                 <span>{product.category}</span>
-                <span>{product.note}</span>
+                <span>{product.size || product.note}</span>
               </div>
               <a className="product-visual" href={product.href} target="_blank" rel="noreferrer">
                 <img src={product.image} alt={product.name} />
               </a>
               <div className="product-bottom">
-                <div>
+                <div className="product-copy">
                   <p>{product.type}</p>
                   <h3>{product.name}</h3>
+                  {product.amazonUrl && <span className="product-claim">{product.note} · Formaldehyde-free</span>}
                 </div>
-                <a className="circle-link" href={product.href} target="_blank" rel="noreferrer" aria-label={`Open ${product.name} guide`}><ArrowIcon /></a>
+                <div className="product-actions">
+                  {product.amazonUrl && (
+                    <a className="amazon-link" href={product.amazonUrl} target="_blank" rel="noreferrer">
+                      Buy on Amazon <ArrowIcon />
+                    </a>
+                  )}
+                  <a className="circle-link" href={product.href} target="_blank" rel="noreferrer" aria-label={`Open ${product.name} guide`}><ArrowIcon /></a>
+                </div>
               </div>
             </article>
           ))}
