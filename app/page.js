@@ -3,27 +3,15 @@
 import { useEffect, useState } from "react";
 
 const products = [
-  {
-    name: "Select One",
-    type: "Smoothing treatment",
-    note: "Formaldehyde-free",
-    image: "/images/select-one.jpg",
-    className: "peach"
-  },
-  {
-    name: "Force Hair",
-    type: "Strengthening system",
-    note: "3-step ritual",
-    image: "/images/force-hair.png",
-    className: "sage"
-  },
-  {
-    name: "Equalize",
-    type: "pH balancing mask",
-    note: "Repair + shine",
-    image: "/images/equalize.webp",
-    className: "lilac"
-  }
+  { name: "Select One 10 oz", type: "Smoothing treatment", note: "Formaldehyde-free", image: "/images/select-one.jpg", className: "tone-mint", category: "Smoothing", href: "https://prohall.hair/prohall-select-one-10-oz-2/" },
+  { name: "Select One 3.4 oz", type: "Travel-size smoothing", note: "Salon results", image: "/images/select-one.jpg", className: "tone-blue", category: "Smoothing", href: "https://prohall.hair/prohall-select-one-10-oz/" },
+  { name: "Force Hair", type: "Strengthening system", note: "3-step ritual", image: "/images/force-hair-pack.webp", className: "tone-sky", category: "Treatment", href: "https://prohall.hair/force-hair-2/" },
+  { name: "Equalize", type: "pH balancing mask", note: "Repair + shine", image: "/images/equalize-pack.webp", className: "tone-mist", category: "Mask", href: "https://prohall.hair/equalize-mask/" },
+  { name: "Pro R Shot", type: "Reconstruction ampoule", note: "5-minute repair", image: "/images/pro-r.webp", className: "tone-blue", category: "Treatment", href: "https://prohall.hair/prohall-pro-r-shot/" },
+  { name: "Hair Ampoules Kit", type: "Hair schedule system", note: "Weekly ritual", image: "/images/ampoules.webp", className: "tone-mint", category: "Treatment", href: "https://prohall.hair/hair-ampoules-kit/" },
+  { name: "Absolut One", type: "Heat protectant spray", note: "Protect + finish", image: "/images/absolute-one.webp", className: "tone-mist", category: "Finish", href: "https://prohall.hair/absolute-one/" },
+  { name: "Absolut Oil", type: "Nourishing hair oil", note: "Softness + shine", image: "/images/absolute-oil.png", className: "tone-sky", category: "Finish", href: "https://prohall.hair/absolute-oil/" },
+  { name: "Toning Masks", type: "Color-correcting masks", note: "4 custom tones", image: "/images/toning-mask.webp", className: "tone-lilac", category: "Mask", href: "https://prohall.hair/toning-mask/" }
 ];
 
 function Arrow() {
@@ -33,6 +21,7 @@ function Arrow() {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState(0);
+  const [productFilter, setProductFilter] = useState("All");
 
   useEffect(() => {
     document.documentElement.classList.add("motion-ready");
@@ -113,17 +102,24 @@ export default function Home() {
 
       <section className="products" id="products">
         <div className="section-head" data-reveal>
-          <div><p className="eyebrow"><i /> YOUR HAIR, YOUR RITUAL</p><h2>Meet the essentials.</h2></div>
-          <a className="text-link" href="#support">View all products <span>→</span></a>
+          <div><p className="eyebrow"><i /> THE PROHALL COLLECTION</p><h2>Find your formula.</h2></div>
+          <p className="section-intro">Targeted professional care for smoothing, repair, color balance and everyday protection.</p>
+        </div>
+        <div className="product-filters" data-reveal aria-label="Filter products">
+          {["All", "Smoothing", "Treatment", "Mask", "Finish"].map((filter) => (
+            <button key={filter} className={productFilter === filter ? "active" : ""} onClick={() => setProductFilter(filter)}>
+              {filter}
+            </button>
+          ))}
         </div>
         <div className="product-grid">
-          {products.map((product, index) => (
-            <article className={`product-card ${product.className}`} key={product.name} data-reveal style={{"--delay": `${index * 120}ms`}}>
-              <div className="card-top"><span>0{index + 1}</span><span>{product.note}</span></div>
+          {products.filter((product) => productFilter === "All" || product.category === productFilter).map((product, index) => (
+            <article className={`product-card ${product.className}`} key={product.name} style={{"--delay": `${index * 70}ms`}}>
+              <div className="card-top"><span>{product.category}</span><span>{product.note}</span></div>
               <div className="product-image"><img src={product.image} alt={`${product.name} product`} /></div>
               <div className="product-info">
                 <div><p>{product.type}</p><h3>{product.name}</h3></div>
-                <button aria-label={`Explore ${product.name}`}>↗</button>
+                <a href={product.href} target="_blank" rel="noreferrer" aria-label={`View ${product.name} guide`}>↗</a>
               </div>
             </article>
           ))}

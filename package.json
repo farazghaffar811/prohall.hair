@@ -2,6 +2,7 @@
   "name": "prohall-professional",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build && node scripts/copy-hosting.mjs",
