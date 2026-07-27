@@ -110,7 +110,7 @@ export default function Home() {
               <strong>Select One</strong>
               <span>Long-lasting smoothing without formaldehyde.</span>
             </div>
-            <img src="/images/select-one.jpg" alt="Prohall Select One" />
+            <img src="/images/select-one-products.jpg" alt="Prohall Select One treatment bottles" />
           </div>
           <div className="hero-badge"><strong>20+</strong><span>years of<br />expertise</span></div>
         </div>
