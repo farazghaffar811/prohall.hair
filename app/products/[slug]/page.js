@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getProduct, getStepImage, getTutorialVideo, products } from "../../productData";
+import { getProduct, getStepImage, products } from "../../productData";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -41,7 +41,12 @@ export default async function ProductManualPage({ params }) {
       <section className="manual-hero">
         <div className="manual-hero-copy">
           <p className="overline">{product.category} · Product manual</p>
-          <h1>{product.name}</h1>
+          <div className="manual-title-lockup">
+            <h1>{product.name}</h1>
+            <div className={`manual-title-product tone-${product.tone}`}>
+              <img src={product.image} alt={`${product.name} product packaging`} />
+            </div>
+          </div>
           <p>{product.description}</p>
           <div className="manual-facts">
             <span><small>Format</small>{product.size || product.note}</span>
@@ -50,12 +55,22 @@ export default async function ProductManualPage({ params }) {
           </div>
           <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
         </div>
-        <div className={`manual-hero-product tone-${product.tone}`}>
-          <span className="manual-product-label">Selected product</span>
-          <img src={product.image} alt={`${product.name} product packaging`} />
-          <div>
-            <small>{product.type}</small>
-            <strong>{product.name}</strong>
+        <div className="manual-hero-video">
+          <div className="manual-hero-video-heading">
+            <span>Product tutorial</span>
+            <strong>Watch before you begin</strong>
+          </div>
+          <div className="manual-hero-video-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
+              title={`${product.name} usage video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+          <div className="manual-hero-video-footer">
+            <span>{product.name}</span>
+            <small>Step-by-step video guide</small>
           </div>
         </div>
       </section>
@@ -92,31 +107,6 @@ export default async function ProductManualPage({ params }) {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="manual-video">
-        <div className="manual-video-copy">
-          <p className="overline">Watch the routine</p>
-          <h2>See every step<br /><em>in sequence.</em></h2>
-          <p>Play the visual walkthrough before you begin, then keep this page open so you can pause and review each instruction as you work.</p>
-        </div>
-        <div className="manual-video-player">
-          {product.youtubeId ? (
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
-              title={`${product.name} usage video`}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          ) : (
-            <video controls preload="metadata" playsInline poster={getStepImage(product, 0)}>
-              <source src={getTutorialVideo(product)} type="video/mp4" />
-              Your browser does not support embedded video.
-            </video>
-          )}
-          <span>{product.name} · visual walkthrough</span>
         </div>
       </section>
 
