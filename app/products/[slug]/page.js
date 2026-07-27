@@ -57,16 +57,23 @@ export default async function ProductManualPage({ params }) {
         </div>
         <div className="manual-hero-video">
           <div className="manual-hero-video-heading">
-            <span>Product tutorial</span>
-            <strong>Watch before you begin</strong>
+            <span>{product.youtubeId ? "Product tutorial" : "Video guide"}</span>
+            <strong>{product.youtubeId ? "Watch before you begin" : "Coming soon"}</strong>
           </div>
           <div className="manual-hero-video-frame">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
-              title={`${product.name} usage video`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            {product.youtubeId ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
+                title={`${product.name} usage video`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : (
+              <div className="manual-video-pending">
+                <span>Video coming soon</span>
+                <p>Follow the complete illustrated manual below while we prepare this product’s official tutorial.</p>
+              </div>
+            )}
           </div>
           <div className="manual-hero-video-footer">
             <span>{product.name}</span>

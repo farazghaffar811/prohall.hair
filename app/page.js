@@ -101,17 +101,24 @@ export default function Home() {
         </div>
 
         <div className="hero-media">
-          <div className="hero-image-wrap">
-            <img src="/images/hero.jpg" alt="Professional stylist caring for a client's hair" />
-          </div>
-          <div className="featured-product">
-            <div className="featured-copy">
-              <small>PROHALL ICON</small>
-              <strong>Select One</strong>
-              <span>Long-lasting smoothing without formaldehyde.</span>
+          <a
+            className="hero-image-wrap stylist-panel"
+            href="https://www.instagram.com/dily_hair"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Dily professional hairstylist on Instagram"
+          >
+            <img src="/images/dily-hairstylist.webp" alt="Dily, Prohall professional hairstylist" />
+            <div className="stylist-caption">
+              <div>
+                <small>MEET YOUR PROHALL EXPERT</small>
+                <strong>Dily</strong>
+                <span>Professional hairstylist</span>
+                <p>Always here to answer your queries at the Prohall help desk.</p>
+              </div>
+              <span className="stylist-link">Instagram <ArrowIcon /></span>
             </div>
-            <img src="/images/select-one-products.jpg" alt="Prohall Select One treatment bottles" />
-          </div>
+          </a>
           <div className="hero-badge"><strong>20+</strong><span>years of<br />expertise</span></div>
         </div>
       </section>
