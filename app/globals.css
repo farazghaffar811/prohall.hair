@@ -474,7 +474,7 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .manual-video-copy h2 em { font-family: "Playfair Display", serif; font-weight: 500; }
 .manual-video-copy > p:last-child { max-width: 430px; margin: 0; color: #b7cadd; font-size: 13px; line-height: 1.75; }
 .manual-video-player { position: relative; overflow: hidden; border-radius: 16px; background: #001d39; box-shadow: 0 30px 80px rgba(0,0,0,0.28); }
-.manual-video-player video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--white); }
+.manual-video-player video, .manual-video-player iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; object-fit: cover; background: var(--white); }
 .manual-video-player > span { position: absolute; right: 16px; bottom: 14px; padding: 8px 11px; border-radius: 999px; background: rgba(0,24,48,0.78); color: var(--white); font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; pointer-events: none; }
 .manual-caution { padding: 70px clamp(20px, 7vw, 112px); display: grid; grid-template-columns: 0.65fr 1.35fr; gap: clamp(50px, 9vw, 150px); background: #d9f0ed; }
 .manual-caution > span { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }

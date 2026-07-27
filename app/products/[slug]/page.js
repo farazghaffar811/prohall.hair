@@ -102,10 +102,20 @@ export default async function ProductManualPage({ params }) {
           <p>Play the visual walkthrough before you begin, then keep this page open so you can pause and review each instruction as you work.</p>
         </div>
         <div className="manual-video-player">
-          <video controls preload="metadata" playsInline poster={getStepImage(product, 0)}>
-            <source src={getTutorialVideo(product)} type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
+          {product.youtubeId ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
+              title={`${product.name} usage video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <video controls preload="metadata" playsInline poster={getStepImage(product, 0)}>
+              <source src={getTutorialVideo(product)} type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          )}
           <span>{product.name} · visual walkthrough</span>
         </div>
       </section>
