@@ -11,18 +11,21 @@ const products = [
     image: "/images/select-one.jpg",
     tone: "mint",
     category: "Smoothing",
-    href: "https://prohall.hair/prohall-select-one-10-oz-2/",
     amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",
-    asin: "B0FMT1XNYT"
+    asin: "B0FMT1XNYT",
+    description: "A professional smoothing cream powered by nanoplastia technology to help reduce frizz, smooth the hair fiber and restore brilliant shine.",
+    benefits: ["Smoother, more manageable hair", "Helps reduce frizz and split ends", "Adds softness and luminous shine", "Suitable for all hair types"],
+    ingredients: "Collagen, coconut oil, Lumini System and lactic acid",
+    features: ["Formaldehyde-free", "Cruelty-free", "Coconut scent"]
   },
-  { name: "Select One 3.4 oz", type: "Travel-size smoothing", note: "Formaldehyde-free", image: "/images/select-one.jpg", tone: "blue", category: "Smoothing", href: "https://prohall.hair/prohall-select-one-10-oz/" },
-  { name: "Force Hair", type: "Strengthening system", note: "3-step ritual", image: "/images/force-hair-pack.webp", tone: "sky", category: "Repair", href: "https://prohall.hair/force-hair-2/" },
-  { name: "Equalize", type: "pH balancing mask", note: "Repair + shine", image: "/images/equalize-pack.webp", tone: "mist", category: "Masks", href: "https://prohall.hair/equalize-mask/" },
-  { name: "Pro R Shot", type: "Reconstruction ampoule", note: "5-minute repair", image: "/images/pro-r.webp", tone: "blue", category: "Repair", href: "https://prohall.hair/prohall-pro-r-shot/" },
-  { name: "Hair Ampoules Kit", type: "Hair schedule system", note: "Weekly ritual", image: "/images/ampoules.webp", tone: "mint", category: "Repair", href: "https://prohall.hair/hair-ampoules-kit/" },
-  { name: "Absolut One", type: "Heat protectant spray", note: "Daily protection", image: "/images/absolute-one.webp", tone: "mist", category: "Finishing", href: "https://prohall.hair/absolute-one/" },
-  { name: "Absolut Oil", type: "Nourishing hair oil", note: "Softness + shine", image: "/images/absolute-oil.png", tone: "sky", category: "Finishing", href: "https://prohall.hair/absolute-oil/" },
-  { name: "Toning Masks", type: "Color-correcting masks", note: "4 custom tones", image: "/images/toning-mask.webp", tone: "lilac", category: "Masks", href: "https://prohall.hair/toning-mask/" }
+  { name: "Select One 3.4 oz", type: "Travel-size smoothing", note: "Formaldehyde-free", image: "/images/select-one.jpg", tone: "blue", category: "Smoothing" },
+  { name: "Force Hair", type: "Strengthening system", note: "3-step ritual", image: "/images/force-hair-pack.webp", tone: "sky", category: "Repair" },
+  { name: "Equalize", type: "pH balancing mask", note: "Repair + shine", image: "/images/equalize-pack.webp", tone: "mist", category: "Masks" },
+  { name: "Pro R Shot", type: "Reconstruction ampoule", note: "5-minute repair", image: "/images/pro-r.webp", tone: "blue", category: "Repair" },
+  { name: "Hair Ampoules Kit", type: "Hair schedule system", note: "Weekly ritual", image: "/images/ampoules.webp", tone: "mint", category: "Repair" },
+  { name: "Absolut One", type: "Heat protectant spray", note: "Daily protection", image: "/images/absolute-one.webp", tone: "mist", category: "Finishing" },
+  { name: "Absolut Oil", type: "Nourishing hair oil", note: "Softness + shine", image: "/images/absolute-oil.png", tone: "sky", category: "Finishing" },
+  { name: "Toning Masks", type: "Color-correcting masks", note: "4 custom tones", image: "/images/toning-mask.webp", tone: "lilac", category: "Masks" }
 ];
 
 const categories = ["All", "Smoothing", "Repair", "Masks", "Finishing"];
@@ -47,6 +50,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState("All");
   const [faqOpen, setFaqOpen] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const visibleProducts = useMemo(
     () => products.filter((product) => filter === "All" || product.category === filter),
@@ -69,9 +73,17 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle("menu-lock", menuOpen);
+    document.body.classList.toggle("menu-lock", menuOpen || Boolean(selectedProduct));
     return () => document.body.classList.remove("menu-lock");
-  }, [menuOpen]);
+  }, [menuOpen, selectedProduct]);
+
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setSelectedProduct(null);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
 
   return (
     <main>
@@ -172,9 +184,9 @@ export default function Home() {
                 <span>{product.category}</span>
                 <span>{product.size || product.note}</span>
               </div>
-              <a className="product-visual" href={product.href} target="_blank" rel="noreferrer">
+              <button className="product-visual" type="button" onClick={() => setSelectedProduct(product)} aria-label={`View ${product.name} details`}>
                 <img src={product.image} alt={product.name} />
-              </a>
+              </button>
               <div className="product-bottom">
                 <div className="product-copy">
                   <p>{product.type}</p>
@@ -187,13 +199,61 @@ export default function Home() {
                       Buy on Amazon <ArrowIcon />
                     </a>
                   )}
-                  <a className="circle-link" href={product.href} target="_blank" rel="noreferrer" aria-label={`Open ${product.name} guide`}><ArrowIcon /></a>
+                  <button className="circle-link" type="button" onClick={() => setSelectedProduct(product)} aria-label={`View ${product.name} details`}><ArrowIcon /></button>
                 </div>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      {selectedProduct && (
+        <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+          <button className="modal-backdrop" type="button" onClick={() => setSelectedProduct(null)} aria-label="Close product details" />
+          <article className="modal-card">
+            <button className="modal-close" type="button" onClick={() => setSelectedProduct(null)} aria-label="Close product details">
+              <span /><span />
+            </button>
+            <div className={`modal-visual tone-${selectedProduct.tone}`}>
+              <span>{selectedProduct.category}</span>
+              <img src={selectedProduct.image} alt={selectedProduct.name} />
+            </div>
+            <div className="modal-content">
+              <p className="overline">{selectedProduct.type}</p>
+              <h2 id="product-modal-title">{selectedProduct.name}</h2>
+              <div className="modal-facts">
+                <span>{selectedProduct.size || selectedProduct.note}</span>
+                {selectedProduct.asin && <span>ASIN {selectedProduct.asin}</span>}
+              </div>
+              <p className="modal-description">
+                {selectedProduct.description || `${selectedProduct.name} is a professional ${selectedProduct.type.toLowerCase()} created to support your ${selectedProduct.category.toLowerCase()} routine.`}
+              </p>
+              {selectedProduct.features && (
+                <div className="feature-pills">
+                  {selectedProduct.features.map((feature) => <span key={feature}>{feature}</span>)}
+                </div>
+              )}
+              {selectedProduct.benefits && (
+                <div className="modal-detail">
+                  <h3>Why you’ll love it</h3>
+                  <ul>{selectedProduct.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
+                </div>
+              )}
+              {selectedProduct.ingredients && (
+                <div className="modal-detail">
+                  <h3>Featured ingredients</h3>
+                  <p>{selectedProduct.ingredients}</p>
+                </div>
+              )}
+              {selectedProduct.amazonUrl && (
+                <a className="button primary modal-buy" href={selectedProduct.amazonUrl} target="_blank" rel="noreferrer">
+                  Buy on Amazon <ArrowIcon />
+                </a>
+              )}
+            </div>
+          </article>
+        </div>
+      )}
 
       <section className="routine section-shell" id="finder">
         <div className="routine-intro" data-animate>
