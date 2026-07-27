@@ -23,6 +23,7 @@ function SparkIcon() {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [filter, setFilter] = useState("All");
   const [faqOpen, setFaqOpen] = useState(0);
 
@@ -64,7 +65,35 @@ export default function Home() {
         </a>
 
         <nav className={menuOpen ? "main-nav open" : "main-nav"} aria-label="Main navigation">
-          <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
+          <div className={categoriesOpen ? "nav-categories open" : "nav-categories"}>
+            <button
+              type="button"
+              aria-expanded={categoriesOpen}
+              onClick={() => setCategoriesOpen(!categoriesOpen)}
+            >
+              Product Categories <span>+</span>
+            </button>
+            <div className="nav-mega">
+              <div>
+                <span>Hair</span>
+                <a href="/products/force-hair" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Force Hair</a>
+                <a href="/products/hair-ampoules-kit" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Hair Ampoules Kit</a>
+              </div>
+              <div>
+                <span>Prohall</span>
+                <a href="/products/select-one" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One 10.1 oz</a>
+                <a href="/products/select-one-travel" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One 4.05 oz</a>
+              </div>
+              <div>
+                <span>Masks</span>
+                <a href="/products/toning-masks" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Toning Masks</a>
+                <a href="/products/equalize" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Equalize Mask</a>
+              </div>
+              <a className="nav-all-products" href="#products" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>
+                View all products <ArrowIcon />
+              </a>
+            </div>
+          </div>
           <a href="#finder" onClick={() => setMenuOpen(false)}>Find your routine</a>
           <a href="#results" onClick={() => setMenuOpen(false)}>Our science</a>
           <a href="#support" onClick={() => setMenuOpen(false)}>Support</a>
@@ -77,7 +106,10 @@ export default function Home() {
             className="menu-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+              if (menuOpen) setCategoriesOpen(false);
+            }}
           >
             <span /><span />
           </button>
