@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getProduct, products } from "../../productData";
+import { getProduct, getStepImage, getTutorialVideo, products } from "../../productData";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -83,7 +83,7 @@ export default async function ProductManualPage({ params }) {
             <article className="manual-step" key={title}>
               <div className={`manual-step-visual tone-${product.tone}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <img src={product.image} alt="" />
+                <img src={getStepImage(product, index)} alt={`${product.name}: ${title}`} loading="lazy" />
               </div>
               <div className="manual-step-copy">
                 <span>Step {String(index + 1).padStart(2, "0")}</span>
@@ -92,6 +92,21 @@ export default async function ProductManualPage({ params }) {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="manual-video">
+        <div className="manual-video-copy">
+          <p className="overline">Watch the routine</p>
+          <h2>See every step<br /><em>in sequence.</em></h2>
+          <p>Play the visual walkthrough before you begin, then keep this page open so you can pause and review each instruction as you work.</p>
+        </div>
+        <div className="manual-video-player">
+          <video controls preload="metadata" playsInline poster={getStepImage(product, 0)}>
+            <source src={getTutorialVideo(product)} type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <span>{product.name} · visual walkthrough</span>
         </div>
       </section>
 

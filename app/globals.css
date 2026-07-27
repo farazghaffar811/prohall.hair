@@ -459,11 +459,21 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .manual-step { min-height: 260px; padding: 28px 0; display: grid; grid-template-columns: 220px 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; border-bottom: 1px solid var(--line); }
 .manual-step-visual { position: relative; height: 205px; display: grid; place-items: center; overflow: hidden; border-radius: 12px; }
 .manual-step-visual > span { position: absolute; top: 14px; left: 15px; font-size: 9px; letter-spacing: 0.08em; }
-.manual-step-visual img { width: 43%; max-height: 145px; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.4s ease; }
+.manual-step-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+.manual-step-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,46,91,0.03), rgba(0,46,91,0.13)); pointer-events: none; }
+.manual-step-visual > span { z-index: 2; min-width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,0.92); }
 .manual-step:hover .manual-step-visual img { transform: translateY(-5px) scale(1.04); }
 .manual-step-copy > span { color: var(--teal-dark); font-size: 8px; letter-spacing: 0.13em; text-transform: uppercase; }
 .manual-step-copy h3 { margin: 10px 0 14px; font-size: clamp(25px, 2.5vw, 36px); font-weight: 400; letter-spacing: -0.035em; }
 .manual-step-copy p { max-width: 560px; margin: 0; color: var(--text-soft); font-size: 13px; line-height: 1.75; }
+.manual-video { padding: clamp(84px, 9vw, 140px) clamp(20px, 7vw, 112px); display: grid; grid-template-columns: 0.65fr 1.35fr; gap: clamp(50px, 9vw, 150px); align-items: center; background: var(--navy); color: var(--white); }
+.manual-video-copy .overline { color: #7be0cd; }
+.manual-video-copy h2 { margin: 16px 0 24px; font-size: clamp(50px, 5.8vw, 82px); font-weight: 300; line-height: 0.98; letter-spacing: -0.055em; }
+.manual-video-copy h2 em { font-family: "Playfair Display", serif; font-weight: 500; }
+.manual-video-copy > p:last-child { max-width: 430px; margin: 0; color: #b7cadd; font-size: 13px; line-height: 1.75; }
+.manual-video-player { position: relative; overflow: hidden; border-radius: 16px; background: #001d39; box-shadow: 0 30px 80px rgba(0,0,0,0.28); }
+.manual-video-player video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--white); }
+.manual-video-player > span { position: absolute; right: 16px; bottom: 14px; padding: 8px 11px; border-radius: 999px; background: rgba(0,24,48,0.78); color: var(--white); font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; pointer-events: none; }
 .manual-caution { padding: 70px clamp(20px, 7vw, 112px); display: grid; grid-template-columns: 0.65fr 1.35fr; gap: clamp(50px, 9vw, 150px); background: #d9f0ed; }
 .manual-caution > span { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .manual-caution h2 { margin: 0 0 12px; font-size: 34px; font-weight: 400; letter-spacing: -0.035em; }
@@ -667,6 +677,7 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .manual-prep { grid-template-columns: 1fr; gap: 48px; }
   .manual-steps { grid-template-columns: 1fr; gap: 54px; }
   .manual-steps-heading { position: static; }
+  .manual-video { grid-template-columns: 1fr; gap: 54px; }
   .manual-caution { grid-template-columns: 0.3fr 1fr; gap: 36px; }
 }
 
@@ -735,8 +746,9 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .manual-steps { padding: 78px 20px; }
   .manual-step { min-height: 0; grid-template-columns: 1fr; gap: 24px; padding: 22px 0 32px; }
   .manual-step-visual { height: 260px; }
-  .manual-step-visual img { width: 36%; max-height: 190px; }
   .manual-step-copy h3 { font-size: 29px; }
+  .manual-video { padding: 78px 20px; }
+  .manual-video-player { border-radius: 12px; }
   .manual-caution { padding: 56px 20px; grid-template-columns: 1fr; gap: 24px; }
   .manual-finish { padding: 78px 20px; flex-direction: column; align-items: stretch; }
   .manual-finish-actions { width: 100%; }

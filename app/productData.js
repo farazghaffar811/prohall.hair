@@ -182,3 +182,24 @@ export const products = [
 export function getProduct(slug) {
   return products.find((product) => product.slug === slug);
 }
+
+const stepImageExtensions = {
+  "select-one": ["jpeg", "jpeg", "png", "png", "png", "png", "png", "png"],
+  "select-one-travel": ["png", "png", "png", "png", "png", "png", "png", "png"],
+  "force-hair": ["png", "png", "png", "webp"],
+  "equalize": ["png", "png", "png", "png"],
+  "pro-r-shot": ["png", "png", "png", "png"],
+  "hair-ampoules-kit": ["png", "png", "png", "png"],
+  "absolut-one": ["jpg", "png", "png", "jpg"],
+  "absolut-oil": ["png", "png", "png", "png"],
+  "toning-masks": ["png", "png", "png", "png"]
+};
+
+export function getStepImage(product, index) {
+  const extension = stepImageExtensions[product.slug]?.[index];
+  return extension ? `/media/${product.slug}/step-${index + 1}.${extension}` : product.image;
+}
+
+export function getTutorialVideo(product) {
+  return `/media/${product.slug}/tutorial.mp4`;
+}
