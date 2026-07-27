@@ -43,9 +43,6 @@ export default async function ProductManualPage({ params }) {
           <p className="overline">{product.category} · Product manual</p>
           <div className="manual-title-lockup">
             <h1>{product.name}</h1>
-            <div className={`manual-title-product tone-${product.tone}`}>
-              <img src={product.image} alt={`${product.name} product packaging`} />
-            </div>
           </div>
           <p>{product.description}</p>
           <div className="manual-facts">
@@ -55,29 +52,12 @@ export default async function ProductManualPage({ params }) {
           </div>
           <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
         </div>
-        <div className="manual-hero-video">
-          <div className="manual-hero-video-heading">
-            <span>{product.youtubeId ? "Product tutorial" : "Video guide"}</span>
-            <strong>{product.youtubeId ? "Watch before you begin" : "Coming soon"}</strong>
-          </div>
-          <div className="manual-hero-video-frame">
-            {product.youtubeId ? (
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
-                title={`${product.name} usage video`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            ) : (
-              <div className="manual-video-pending">
-                <span>Video coming soon</span>
-                <p>Follow the complete illustrated manual below while we prepare this product’s official tutorial.</p>
-              </div>
-            )}
-          </div>
-          <div className="manual-hero-video-footer">
-            <span>{product.name}</span>
-            <small>Step-by-step video guide</small>
+        <div className={`manual-hero-product tone-${product.tone}`}>
+          <span className="manual-product-label">Selected product</span>
+          <img src={product.image} alt={`${product.name} product packaging`} />
+          <div>
+            <small>{product.type}</small>
+            <strong>{product.name}</strong>
           </div>
         </div>
       </section>
@@ -91,6 +71,29 @@ export default async function ProductManualPage({ params }) {
           {product.tools.map((tool, index) => (
             <span key={tool}><b>{String(index + 1).padStart(2, "0")}</b>{tool}</span>
           ))}
+        </div>
+      </section>
+
+      <section className="manual-tutorial">
+        <div className="manual-tutorial-copy">
+          <p className="overline">Watch first</p>
+          <h2>See the routine<br />before you begin.</h2>
+          <p>Play the complete product tutorial, then follow the illustrated steps directly below at your own pace.</p>
+        </div>
+        <div className="manual-tutorial-player">
+          {product.youtubeId ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
+              title={`${product.name} usage video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <div className="manual-video-pending">
+              <span>Video coming soon</span>
+              <p>Follow the complete illustrated manual below while we prepare this product’s official tutorial.</p>
+            </div>
+          )}
         </div>
       </section>
 
