@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getProduct, getStepImage, products } from "../../productData";
+import ProductImageViewer from "../../components/ProductImageViewer";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -52,14 +53,7 @@ export default async function ProductManualPage({ params }) {
           </div>
           <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
         </div>
-        <div className={`manual-hero-product tone-${product.tone}`}>
-          <span className="manual-product-label">Selected product</span>
-          <img src={product.image} alt={`${product.name} product packaging`} />
-          <div>
-            <small>{product.type}</small>
-            <strong>{product.name}</strong>
-          </div>
-        </div>
+        <ProductImageViewer product={product} />
       </section>
 
       <section className="manual-prep">
