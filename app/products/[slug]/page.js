@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getProduct, getStepImage, products } from "../../productData";
+import { productFaqs } from "../../productFaqs";
 import ProductImageViewer from "../../components/ProductImageViewer";
 
 export function generateStaticParams() {
@@ -29,6 +30,7 @@ export default async function ProductManualPage({ params }) {
   const product = getProduct(slug);
 
   if (!product) notFound();
+  const faqs = productFaqs[product.slug] || [];
 
   return (
     <main className="manual-page">
@@ -121,6 +123,32 @@ export default async function ProductManualPage({ params }) {
           <p>{product.caution}</p>
         </div>
       </aside>
+
+      {faqs.length > 0 && (
+        <section className="manual-faq" id="faqs">
+          <div className="manual-faq-heading">
+            <div>
+              <p className="overline">Product support · {faqs.length} answers</p>
+              <h2>Frequently asked<br /><em>questions.</em></h2>
+            </div>
+            <p>Find detailed answers about application, timing, compatibility, aftercare, storage and expected results for {product.name}.</p>
+          </div>
+          <div className="manual-faq-list">
+            {faqs.map(({ question, answer }, index) => (
+              <details className="manual-faq-item" key={`${index}-${question}`}>
+                <summary>
+                  <span className="manual-faq-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="manual-faq-question">{question}</span>
+                  <span className="manual-faq-toggle" aria-hidden="true" />
+                </summary>
+                <div className="manual-faq-answer">
+                  <p>{answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="manual-finish">
         <div>
