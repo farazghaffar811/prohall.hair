@@ -555,6 +555,31 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .zoom-controls button:hover:not(:disabled) { background: var(--white); }
 .zoom-controls button:disabled { opacity: 0.3; cursor: default; }
 .zoom-controls span { text-align: center; font-size: 8px; font-weight: 600; }
+.product-gallery { position: relative; z-index: 1; min-height: 0; display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 14px; }
+.product-thumbnails { display: flex; flex-direction: column; gap: 9px; }
+.product-thumbnails button { width: 58px; height: 58px; padding: 5px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(0,46,91,0.14); border-radius: 9px; background: rgba(255,255,255,0.5); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+.product-thumbnails button.active { border-color: var(--navy); background: var(--white); }
+.product-thumbnails img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.product-zoom-stage.hovering img { transform: scale(1.7); transform-origin: var(--hover-origin, 50% 50%); }
+.expand-hint { position: absolute; right: 12px; bottom: 12px; padding: 7px 10px; border-radius: 999px; background: rgba(0,46,91,0.82); color: var(--white); font-size: 7px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity 0.2s ease, transform 0.2s ease; }
+.product-zoom-stage:hover .expand-hint { opacity: 1; transform: none; }
+.open-zoom-button { padding: 10px 14px; display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(0,46,91,0.18); border-radius: 999px; background: rgba(255,255,255,0.7); font-size: 8px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; }
+.open-zoom-button span { font-size: 13px; }
+.product-lightbox { position: fixed; z-index: 120; inset: 0; padding: 26px; display: grid; place-items: center; }
+.lightbox-backdrop { position: absolute; inset: 0; width: 100%; border: 0; background: rgba(0,24,48,0.78); backdrop-filter: blur(9px); cursor: pointer; animation: modal-fade 0.22s ease both; }
+.lightbox-panel { position: relative; z-index: 1; width: min(1080px, 100%); height: min(820px, calc(100svh - 52px)); padding: 22px; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 16px; overflow: hidden; border-radius: 18px; background: var(--white); box-shadow: 0 36px 100px rgba(0,0,0,0.32); animation: modal-rise 0.35s cubic-bezier(0.2,0.8,0.2,1) both; }
+.lightbox-header, .lightbox-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.lightbox-header > div { display: flex; flex-direction: column; gap: 4px; }
+.lightbox-header small { color: var(--teal-dark); font-size: 7px; letter-spacing: 0.12em; text-transform: uppercase; }
+.lightbox-header strong { font-size: 18px; font-weight: 500; }
+.lightbox-header > button { width: 40px; height: 40px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--white); font-size: 25px; font-weight: 300; cursor: pointer; }
+.lightbox-image { min-height: 0; display: grid; place-items: center; overflow: hidden; border-radius: 12px; background: var(--off-white); cursor: zoom-in; touch-action: none; }
+.lightbox-image.is-zoomed { cursor: grab; }
+.lightbox-image.is-zoomed:active { cursor: grabbing; }
+.lightbox-image img { width: min(72%, 620px); height: min(88%, 650px); object-fit: contain; mix-blend-mode: multiply; user-select: none; transition: transform 0.28s ease; }
+.lightbox-image.is-zoomed img { transition: transform 0.08s linear; }
+.lightbox-footer > span { color: var(--text-soft); font-size: 9px; }
+.lightbox-footer .zoom-controls { flex: 0 0 auto; }
 .manual-hero-video { min-height: 620px; padding: clamp(24px, 3vw, 42px); display: grid; grid-template-rows: auto 1fr auto; gap: 28px; overflow: hidden; border-radius: 22px; background: var(--navy); color: var(--white); }
 .manual-hero-video-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .manual-hero-video-heading span, .manual-hero-video-footer small { color: #7be0cd; font-size: 8px; letter-spacing: 0.13em; text-transform: uppercase; }
@@ -900,10 +925,21 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .product-viewer { min-height: 470px; padding: 18px; }
   .product-zoom-stage { padding: 10px; }
   .product-zoom-stage img { width: min(72%, 250px); height: min(92%, 310px); }
+  .product-gallery { grid-template-columns: 1fr; }
+  .product-thumbnails { order: 2; flex-direction: row; justify-content: center; overflow-x: auto; }
+  .product-thumbnails button { width: 50px; height: 50px; flex: 0 0 50px; }
+  .product-zoom-stage { min-height: 285px; }
+  .product-zoom-stage.hovering img { transform: none; }
+  .expand-hint { display: none; }
   .product-viewer-top span:last-child { display: none; }
   .product-viewer-bottom strong { font-size: 17px; }
   .zoom-controls { grid-template-columns: 32px 44px 32px; }
   .zoom-controls button { width: 32px; height: 34px; }
+  .open-zoom-button { padding: 9px 11px; }
+  .product-lightbox { padding: 0; }
+  .lightbox-panel { width: 100%; height: 100svh; padding: 16px; border-radius: 0; }
+  .lightbox-image img { width: 82%; height: 82%; }
+  .lightbox-footer > span { max-width: 145px; line-height: 1.4; }
   .manual-hero-video { min-height: 390px; padding: 20px; gap: 18px; border-radius: 14px; }
   .manual-hero-video-heading strong { display: none; }
   .manual-hero-video-frame iframe { border-radius: 8px; }

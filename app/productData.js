@@ -16,7 +16,7 @@ export const products = [
     type: "Brazilian keratin treatment",
     note: "Up to 6 months",
     size: "10.1 fl oz / 300 ml",
-    image: "/images/select-one-300ml.webp",
+    image: "/images/select-one-300ml-v2.png",
     tone: "mint",
     category: "Smoothing",
     amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",
