@@ -53,10 +53,7 @@ export default async function ProductManualPage({ params }) {
           </div>
           <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
         </div>
-        <ProductImageViewer
-          product={product}
-          images={[product.image, ...product.steps.slice(0, 3).map((_, index) => getStepImage(product, index))]}
-        />
+        <ProductImageViewer product={product} images={[product.image]} />
       </section>
 
       <section className="manual-prep">

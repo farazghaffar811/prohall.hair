@@ -520,7 +520,7 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .manual-hero-product > div small { font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
 .manual-hero-product > div strong { font-size: 20px; font-weight: 400; }
 .product-viewer { grid-template-rows: auto minmax(0, 1fr) auto; place-items: stretch; gap: 16px; }
-.product-viewer::after { z-index: 0; top: 18%; left: 20%; pointer-events: none; }
+.product-viewer::after { z-index: 0; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
 .product-viewer-top, .product-viewer-bottom { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .product-viewer-top span { font-size: 8px; letter-spacing: 0.13em; text-transform: uppercase; }
 .product-viewer-top span:last-child { color: var(--text-soft); font-size: 7px; }
@@ -541,7 +541,9 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .product-zoom-stage img {
   width: min(76%, 390px);
   height: min(92%, 430px);
+  display: block;
   object-fit: contain;
+  object-position: center center;
   mix-blend-mode: multiply;
   transform: scale(var(--product-zoom, 1));
   transition: transform 0.45s cubic-bezier(0.2,0.8,0.2,1);
@@ -556,6 +558,9 @@ em { font-family: "Playfair Display", serif; font-weight: 500; }
 .zoom-controls button:disabled { opacity: 0.3; cursor: default; }
 .zoom-controls span { text-align: center; font-size: 8px; font-weight: 600; }
 .product-gallery { position: relative; z-index: 1; min-height: 0; display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 14px; }
+.product-gallery.single { grid-template-columns: minmax(0, 1fr); }
+.product-gallery.single .product-zoom-stage { width: 100%; }
+.product-gallery.single .product-zoom-stage img { width: min(68%, 370px); height: min(88%, 410px); margin: auto; }
 .product-thumbnails { display: flex; flex-direction: column; gap: 9px; }
 .product-thumbnails button { width: 58px; height: 58px; padding: 5px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(0,46,91,0.14); border-radius: 9px; background: rgba(255,255,255,0.5); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
 .product-thumbnails button.active { border-color: var(--navy); background: var(--white); }

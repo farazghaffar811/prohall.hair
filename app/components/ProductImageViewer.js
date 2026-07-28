@@ -73,25 +73,26 @@ export default function ProductImageViewer({ product, images }) {
           <span>Hover to zoom · Click to expand</span>
         </div>
 
-        <div className="product-gallery">
-          <div className="product-thumbnails" aria-label={`${product.name} image gallery`}>
-            {gallery.map((image, index) => (
-              <button
-                className={selectedIndex === index ? "active" : ""}
-                type="button"
-                key={image}
-                onClick={() => {
-                  setSelectedIndex(index);
-                  setHovering(false);
-                }}
-                aria-label={`View ${product.name} image ${index + 1}`}
-                aria-pressed={selectedIndex === index}
-              >
-                <img src={image} alt="" />
-              </button>
-            ))}
-          </div>
-
+        <div className={gallery.length === 1 ? "product-gallery single" : "product-gallery"}>
+          {gallery.length > 1 && (
+            <div className="product-thumbnails" aria-label={`${product.name} image gallery`}>
+              {gallery.map((image, index) => (
+                <button
+                  className={selectedIndex === index ? "active" : ""}
+                  type="button"
+                  key={image}
+                  onClick={() => {
+                    setSelectedIndex(index);
+                    setHovering(false);
+                  }}
+                  aria-label={`View ${product.name} image ${index + 1}`}
+                  aria-pressed={selectedIndex === index}
+                >
+                  <img src={image} alt="" />
+                </button>
+              ))}
+            </div>
+          )}
           <button
             className={hovering ? "product-zoom-stage hovering" : "product-zoom-stage"}
             type="button"
