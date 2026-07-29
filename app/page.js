@@ -56,7 +56,7 @@ export default function Home() {
     <main>
       <div className="topbar">
         <p>Professional Brazilian haircare</p>
-        <a href="#support">Need product help? <span>Talk to an expert</span></a>
+        <a href="/consult">Need product help? <span>Start a consultation</span></a>
       </div>
 
       <header className="site-header">
@@ -96,12 +96,12 @@ export default function Home() {
           </div>
           <a href="#finder" onClick={() => setMenuOpen(false)}>Find your routine</a>
           <a href="#results" onClick={() => setMenuOpen(false)}>Our science</a>
-          <a href="#support" onClick={() => setMenuOpen(false)}>Support</a>
+          <a href="/consult" onClick={() => setMenuOpen(false)}>Consultation</a>
           <a className="mobile-nav-cta" href="#products" onClick={() => setMenuOpen(false)}>Explore products <ArrowIcon /></a>
         </nav>
 
         <div className="header-actions">
-          <a className="header-help" href="#support">Get support</a>
+          <a className="header-help" href="/consult">Get support</a>
           <button
             className="menu-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -217,7 +217,7 @@ export default function Home() {
           <p className="overline">START WITH YOUR HAIR</p>
           <h2>Not sure what<br />you need?</h2>
           <p>Choose the statement that sounds most like your hair. We’ll point you toward the right place to begin.</p>
-          <a className="text-arrow" href="#support">Ask a product specialist <ArrowIcon /></a>
+          <a className="text-arrow" href="/consult">Ask a product specialist <ArrowIcon /></a>
         </div>
         <div className="routine-options">
           {[
@@ -270,7 +270,7 @@ export default function Home() {
         </div>
         <div className="support-copy" data-animate>
           <p>Our product specialists can help you choose a treatment, understand the steps or care for your results.</p>
-          <a className="button white" href="mailto:support@prohall.hair">Talk to a specialist <ArrowIcon /></a>
+          <a className="button white" href="/consult">Start a consultation <ArrowIcon /></a>
         </div>
       </section>
 
@@ -303,7 +303,7 @@ export default function Home() {
             <a href="#products">Products</a>
             <a href="#finder">Find your routine</a>
             <a href="#results">Our science</a>
-            <a href="#support">Support</a>
+            <a href="/consult">Consultation</a>
           </div>
         </div>
         <div className="footer-bottom"><span>© 2026 Prohall Professional</span><span>Privacy · Terms</span><span>Made for every texture.</span></div>
