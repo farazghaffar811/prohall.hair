@@ -315,7 +315,7 @@ export default function Home() {
             <a href="/consult">Consultation</a>
           </div>
         </div>
-        <div className="footer-bottom"><span>© 2026 Prohall Professional</span><span>Privacy · Terms</span><span>Made for every texture.</span></div>
+        <div className="footer-bottom"><span>© 2026 Prohall Professional</span><span><a href="/privacy">Privacy</a> · Terms</span><span>Made for every texture.</span></div>
       </footer>
     </main>
   );

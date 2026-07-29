@@ -22,7 +22,6 @@ function ArrowIcon() {
 export default function StickyChat() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [sentMessage, setSentMessage] = useState("");
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -35,49 +34,39 @@ export default function StickyChat() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, [open]);
 
-  const sendPreviewMessage = (event) => {
+  const openConsultation = (event) => {
     event.preventDefault();
     const nextMessage = message.trim();
     if (!nextMessage) return;
-    setSentMessage(nextMessage);
-    setMessage("");
+    window.location.assign(`/consult?prompt=${encodeURIComponent(nextMessage)}`);
   };
 
   return (
     <div className={open ? "sticky-chat is-open" : "sticky-chat"}>
       {open && (
-        <section className="sticky-chat-panel" aria-label="Prohall support chat preview">
+        <section className="sticky-chat-panel" aria-label="Start a Prohall hair consultation">
           <div className="sticky-chat-head">
             <div className="sticky-chat-avatar"><span>PH</span></div>
             <div>
-              <strong>Prohall support</strong>
-              <span><i /> Consultation preview</span>
+              <strong>Prohall consultant</strong>
+              <span><i /> Advice-only hair guidance</span>
             </div>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close support chat">×</button>
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close hair consultation">×</button>
           </div>
 
-          <div className="sticky-chat-body" aria-live="polite">
+          <div className="sticky-chat-body">
             <div className="sticky-chat-message assistant">
               <span>Prohall</span>
-              <p>Hi! Tell us what your hair needs and we’ll help you find the right place to start.</p>
+              <p>Tell us what is happening with your hair. Your message will open in the full consultation.</p>
             </div>
-            {sentMessage && (
-              <>
-                <div className="sticky-chat-message user"><p>{sentMessage}</p></div>
-                <div className="sticky-chat-message assistant">
-                  <span>Prohall</span>
-                  <p>Thank you. Personalized replies will be connected in the next phase. You can continue through our consultation experience now.</p>
-                </div>
-              </>
-            )}
             <div className="sticky-chat-suggestions">
-              {["Frizz and smoothing", "Dry or damaged hair", "Product help"].map((suggestion) => (
+              {["Frizz and texture", "Dry or damaged hair", "Chemical compatibility"].map((suggestion) => (
                 <button type="button" key={suggestion} onClick={() => setMessage(suggestion)}>{suggestion}</button>
               ))}
             </div>
           </div>
 
-          <form className="sticky-chat-form" onSubmit={sendPreviewMessage}>
+          <form className="sticky-chat-form" onSubmit={openConsultation}>
             <input
               ref={inputRef}
               value={message}
@@ -85,7 +74,7 @@ export default function StickyChat() {
               placeholder="Describe your hair concern..."
               aria-label="Describe your hair concern"
             />
-            <button type="submit" aria-label="Send preview message"><ArrowIcon /></button>
+            <button type="submit" aria-label="Open consultation with this message"><ArrowIcon /></button>
           </form>
 
           <a className="sticky-chat-consult" href="/consult">
@@ -97,7 +86,7 @@ export default function StickyChat() {
       <button
         className="sticky-chat-launcher"
         type="button"
-        aria-label={open ? "Close Prohall support chat" : "Open Prohall support chat"}
+        aria-label={open ? "Close Prohall hair consultation" : "Open Prohall hair consultation"}
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
       >

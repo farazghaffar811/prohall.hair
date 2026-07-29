@@ -1146,34 +1146,44 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   justify-content: center;
   align-items: center;
   gap: 11px;
+  border: 0;
   border-radius: 12px;
   background: var(--navy);
   color: var(--white);
+  font: inherit;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;
+  cursor: pointer;
   box-shadow: 0 14px 34px rgba(0,46,91,0.18);
   transition: transform 0.25s ease, background 0.25s ease;
 }
 .consult-new:hover { background: var(--navy-2); transform: translateY(-2px); }
 .consult-new span { color: #8be4d3; font-size: 19px; font-weight: 300; }
 .consult-sidebar nav { margin-top: 28px; display: flex; flex-direction: column; gap: 4px; }
-.consult-sidebar nav a, .consult-sidebar nav > span {
+.consult-sidebar nav a, .consult-sidebar nav > span, .consult-sidebar nav > button {
   min-height: 44px;
   padding: 0 13px;
   display: flex;
   align-items: center;
   gap: 12px;
+  border: 0;
   border-radius: 10px;
+  background: transparent;
   color: var(--text-soft);
+  font: inherit;
   font-size: 12px;
   font-weight: 500;
+  text-align: left;
+  cursor: pointer;
   transition: color 0.2s ease, background 0.2s ease;
 }
 .consult-sidebar nav svg { width: 17px; height: 17px; }
-.consult-sidebar nav a:hover { background: var(--mist); color: var(--navy); }
+.consult-sidebar nav a:hover, .consult-sidebar nav > button:hover { background: var(--mist); color: var(--navy); }
 .consult-sidebar nav > span.active { background: #d9f0ed; color: var(--navy); }
 .consult-sidebar nav > span.active svg { color: var(--teal-dark); }
+.consult-sidebar nav > button > span { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.consult-sidebar nav > button small { color: #567187; font-size: 9px; font-weight: 500; }
 .consult-sidebar-auth { margin-top: auto; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: var(--off-white); }
 .consult-sidebar-auth > span { display: block; color: var(--navy); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
 .consult-sidebar-auth > div { margin-top: 13px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 7px; }
@@ -1193,6 +1203,13 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-auth-login:hover { background: var(--mist); }
 .consult-auth-signup:hover { background: var(--teal-dark); }
 .consult-sidebar-auth button:focus-visible { outline: 3px solid rgba(37, 186, 158, 0.2); outline-offset: 2px; }
+.consult-sidebar-account { margin-top: auto; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: var(--off-white); }
+.consult-sidebar-account > span { display: flex; align-items: center; gap: 8px; color: var(--teal-dark); font-size: 9px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.consult-sidebar-account > span i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(37,186,158,0.12); }
+.consult-sidebar-account strong { max-width: 100%; margin-top: 11px; display: block; overflow: hidden; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.consult-sidebar-account small { margin-top: 6px; display: block; color: #496982; font-size: 10px; line-height: 1.5; }
+.consult-sidebar-account button { width: 100%; min-height: 38px; margin-top: 13px; border: 1px solid var(--line); border-radius: 9px; background: var(--white); color: var(--navy); font: inherit; font-size: 10px; font-weight: 600; cursor: pointer; }
+.consult-sidebar-account button:hover { border-color: var(--teal-dark); }
 .consult-workspace { min-height: 100svh; margin-left: 270px; }
 .consult-header {
   position: sticky;
@@ -1209,9 +1226,11 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 }
 .consult-header > .logo { display: none; }
 .consult-header > p { margin: 0; color: #3f607a; font-size: 13px; font-weight: 500; }
-.consult-header > a:last-child { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-.consult-header > a:last-child svg { width: 15px; transition: transform 0.2s ease; }
-.consult-header > a:last-child:hover svg { transform: translateX(3px); }
+.consult-header-actions { display: flex; align-items: center; gap: 14px; }
+.consult-header-actions > a { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.consult-header-actions > a svg { width: 15px; transition: transform 0.2s ease; }
+.consult-header-actions > a:hover svg { transform: translateX(3px); }
+.consult-mobile-auth { display: none; }
 .consult-main { width: min(940px, calc(100% - 44px)); margin: 0 auto; padding: clamp(56px, 7vw, 92px) 0 72px; }
 .consult-intro { max-width: 700px; }
 .consult-pill {
@@ -1261,7 +1280,12 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-modes > button small { margin-top: 7px; color: #496982; font-size: 12px; line-height: 1.55; }
 .consult-modes > button.active small { color: rgba(255,255,255,0.68); }
 .consult-experience { margin-top: 16px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--off-white); animation: consult-in 0.4s ease both; }
-.consult-chat { min-height: 470px; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.consult-chat { min-height: 470px; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; }
+.consult-chat-save-state { min-height: 46px; padding: 0 17px; display: flex; justify-content: space-between; align-items: center; gap: 18px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.72); }
+.consult-chat-save-state > span { min-width: 0; display: flex; align-items: center; gap: 8px; overflow: hidden; color: #496982; font-size: 10px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.consult-chat-save-state i { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: #d6a948; }
+.consult-chat-save-state i.saved { background: var(--teal); box-shadow: 0 0 0 4px rgba(37,186,158,0.11); }
+.consult-chat-save-state button { padding: 0; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--teal-dark); font: inherit; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
 .consult-chat-feed { min-height: 390px; max-height: 520px; padding: 26px; overflow-y: auto; }
 .consult-chat-empty { max-width: 600px; min-height: 330px; margin: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .consult-orbit { position: relative; width: 76px; height: 76px; margin-bottom: 22px; display: grid; place-items: center; border: 1px solid rgba(37,186,158,0.32); border-radius: 50%; }
@@ -1275,15 +1299,23 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-messages { display: flex; flex-direction: column; gap: 16px; }
 .consult-message { max-width: 78%; }
 .consult-message span { display: block; margin-bottom: 6px; color: var(--teal-dark); font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
-.consult-message p { margin: 0; padding: 13px 15px; border-radius: 13px 13px 13px 3px; background: var(--white); color: #3f607a; font-size: 14px; line-height: 1.65; box-shadow: 0 8px 25px rgba(0,46,91,0.06); }
+.consult-message p { margin: 0; padding: 13px 15px; border-radius: 13px 13px 13px 3px; background: var(--white); color: #3f607a; font-size: 14px; line-height: 1.65; white-space: pre-wrap; box-shadow: 0 8px 25px rgba(0,46,91,0.06); }
 .consult-message.user { align-self: flex-end; }
 .consult-message.user p { border-radius: 13px 13px 3px 13px; background: var(--navy); color: var(--white); }
+.consult-message.streaming p::after { content: ""; width: 5px; height: 5px; margin-left: 6px; display: inline-block; border-radius: 50%; background: var(--teal); animation: consult-pulse 0.8s ease-in-out infinite alternate; }
+.consult-reply-options { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 7px; }
+.consult-reply-options button { padding: 8px 11px; border: 1px solid rgba(37,186,158,0.44); border-radius: 999px; background: var(--white); color: #315772; font: inherit; font-size: 11px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+.consult-reply-options button:hover { border-color: var(--teal-dark); color: var(--navy); transform: translateY(-1px); }
+.consult-chat-alert { margin: 18px 0 0; padding: 15px; display: flex; justify-content: space-between; align-items: center; gap: 16px; border: 1px solid rgba(198, 142, 44, 0.28); border-radius: 12px; background: #fff9ea; color: #72551d; font-size: 12px; line-height: 1.55; }
+.consult-chat-alert button { min-height: 38px; padding: 0 12px; display: flex; align-items: center; gap: 8px; flex: 0 0 auto; border: 0; border-radius: 999px; background: var(--navy); color: var(--white); font: inherit; font-size: 9px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+.consult-chat-alert button svg { width: 14px; }
 .consult-composer { padding: 13px; display: flex; align-items: flex-end; gap: 8px; border-top: 1px solid var(--line); background: var(--white); }
 .consult-composer textarea { min-height: 46px; max-height: 120px; padding: 13px 14px; flex: 1; resize: none; border: 1px solid var(--line); border-radius: 12px; background: var(--off-white); color: var(--navy); font: inherit; font-size: 14px; outline: none; }
 .consult-composer textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(37,186,158,0.1); }
 .consult-composer > button { width: 46px; height: 46px; padding: 0; display: grid; place-items: center; flex: 0 0 46px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); cursor: pointer; }
 .consult-composer > button.send { border-color: var(--teal); background: var(--teal); color: var(--white); }
 .consult-composer > button:disabled { opacity: 0.35; cursor: default; }
+.consult-rate-limit { padding: 0 14px 12px; background: var(--white); color: #72551d; font-size: 10px; text-align: right; }
 .consult-quiz { min-height: 470px; padding: clamp(26px, 5vw, 58px); }
 .consult-quiz-progress { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .consult-quiz-progress > span { color: #3f607a; font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
@@ -1308,8 +1340,8 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-result-facts span + span { border-left: 1px solid var(--line); }
 .consult-result-facts small { color: #496982; font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; }
 .consult-result-actions { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 12px; }
-.consult-result-actions a, .consult-result-actions button { min-height: 46px; padding: 0 18px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--navy); border-radius: 999px; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
-.consult-result-actions button { border-color: var(--line); background: var(--white); color: var(--navy); }
+.consult-result-actions a, .consult-result-actions button { min-height: 46px; padding: 0 18px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--navy); font: inherit; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+.consult-result-actions > :first-child { border-color: var(--navy); background: var(--navy); color: var(--white); }
 .consult-photo { min-height: 470px; padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(28px, 5vw, 58px); }
 .consult-photo-drop { min-height: 350px; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; border: 1px dashed rgba(0,46,91,0.32); border-radius: 16px; background: var(--white); text-align: center; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
 .consult-photo-drop:hover, .consult-photo-drop:focus-visible { border-color: var(--teal); background: #f9fffd; outline: none; }
@@ -1332,8 +1364,33 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-disclaimer svg { width: 14px; }
 .consult-disclaimer p { margin: 0; color: #3f607a; font-size: 11px; }
 @keyframes consult-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes consult-pulse { to { opacity: 0.28; transform: scale(0.75); } }
+
+/* Consultation authentication */
+.consult-auth-modal { position: fixed; z-index: 220; inset: 0; padding: 24px; display: grid; place-items: center; overflow-y: auto; background: rgba(0, 28, 55, 0.7); backdrop-filter: blur(10px); animation: modal-fade 0.25s ease both; }
+.consult-auth-modal > section { position: relative; width: min(500px, 100%); padding: clamp(28px, 5vw, 46px); border: 1px solid rgba(255,255,255,0.45); border-radius: 22px; background: var(--white); box-shadow: 0 35px 100px rgba(0,24,48,0.3); animation: modal-rise 0.35s cubic-bezier(0.2,0.8,0.2,1) both; }
+.consult-auth-close { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--white); color: var(--navy); font-size: 24px; font-weight: 300; cursor: pointer; }
+.consult-auth-modal h2 { max-width: 380px; margin: 12px 0 12px; font-size: clamp(32px, 5vw, 46px); font-weight: 400; line-height: 1.04; letter-spacing: -0.045em; }
+.consult-auth-lead { margin: 0; color: #3f607a; font-size: 13px; line-height: 1.65; }
+.consult-auth-modal form { margin-top: 25px; display: grid; gap: 14px; }
+.consult-auth-modal label { display: grid; gap: 7px; }
+.consult-auth-modal label > span { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.consult-auth-modal input { width: 100%; height: 50px; padding: 0 14px; border: 1px solid var(--line); border-radius: 11px; background: var(--off-white); color: var(--navy); font: inherit; font-size: 14px; outline: none; }
+.consult-auth-modal input:focus { border-color: var(--teal-dark); box-shadow: 0 0 0 3px rgba(37,186,158,0.1); }
+.consult-auth-status { padding: 11px 12px; border-radius: 9px; font-size: 11px; line-height: 1.55; }
+.consult-auth-status.info { background: #edf6f5; color: #245d67; }
+.consult-auth-status.success { background: #e4f5e9; color: #225e3d; }
+.consult-auth-status.error { background: #fff0ed; color: #8e3b2d; }
+.consult-auth-submit { min-height: 50px; border: 0; border-radius: 11px; background: var(--navy); color: var(--white); font: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
+.consult-auth-submit:hover:not(:disabled) { background: var(--teal-dark); transform: translateY(-1px); }
+.consult-auth-submit:disabled { opacity: 0.45; cursor: default; }
+.consult-auth-switch { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #496982; font-size: 11px; }
+.consult-auth-switch button { padding: 0; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--teal-dark); font: inherit; font-weight: 600; cursor: pointer; }
+.consult-auth-privacy { margin: 24px 0 0; padding-top: 17px; border-top: 1px solid var(--line); color: #567187; font-size: 9px; line-height: 1.6; }
+.consult-auth-privacy a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
 
 /* Global sticky support chat */
+.consultation-active .sticky-chat { display: none; }
 .sticky-chat { position: fixed; z-index: 110; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; align-items: flex-end; gap: 12px; pointer-events: none; }
 .sticky-chat > * { pointer-events: auto; }
 .sticky-chat-launcher {
@@ -1384,17 +1441,32 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .sticky-chat-consult:hover svg { transform: translateX(3px); }
 @keyframes chat-panel-in { from { opacity: 0; transform: translateY(16px) scale(0.97); } }
 
+/* Consultation privacy */
+.privacy-page { min-height: 100svh; background: var(--off-white); }
+.privacy-page > article { width: min(880px, calc(100% - 40px)); margin: 0 auto; padding: clamp(72px, 9vw, 120px) 0 110px; }
+.privacy-page h1 { margin: 18px 0 24px; font-size: clamp(50px, 8vw, 86px); font-weight: 300; line-height: 0.98; letter-spacing: -0.055em; }
+.privacy-intro { max-width: 680px; margin: 0 0 56px; color: #3f607a; font-size: 16px; line-height: 1.75; }
+.privacy-page article section { padding: 30px 0; display: grid; grid-template-columns: minmax(180px, 0.38fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 72px); border-top: 1px solid var(--line); }
+.privacy-page article section:last-child { border-bottom: 1px solid var(--line); }
+.privacy-page section h2 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; }
+.privacy-page section p { margin: 0; color: #3f607a; font-size: 14px; line-height: 1.8; }
+
 @media (max-width: 960px) {
   .consult-sidebar { display: none; }
   .consult-workspace { margin-left: 0; }
   .consult-header { min-height: 72px; }
   .consult-header > .logo { display: block; }
   .consult-header > p { display: none; }
+  .consult-mobile-auth { min-height: 36px; padding: 0 12px; display: flex; align-items: center; gap: 7px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--navy); font: inherit; font-size: 10px; font-weight: 600; cursor: pointer; }
+  .consult-mobile-auth svg { width: 14px; }
 }
 
 @media (max-width: 680px) {
   .consult-header { padding: 0 20px; }
-  .consult-header > a:last-child { font-size: 10px; }
+  .consult-header-actions { gap: 7px; }
+  .consult-header-actions > a { font-size: 0; }
+  .consult-header-actions > a svg { width: 18px; }
+  .consult-mobile-auth { padding: 0 10px; }
   .consult-main { width: min(100% - 28px, 940px); padding: 44px 0 100px; }
   .consult-intro h1 { margin-top: 20px; font-size: clamp(48px, 15vw, 64px); }
   .consult-intro > p:last-child { font-size: 13px; }
@@ -1408,6 +1480,8 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .consult-modes > button small { display: none; }
   .consult-experience { border-radius: 14px; }
   .consult-chat { min-height: 440px; }
+  .consult-chat-save-state { padding: 0 13px; }
+  .consult-chat-save-state > span { font-size: 9px; }
   .consult-chat-feed { min-height: 360px; padding: 18px 14px; }
   .consult-chat-empty { min-height: 320px; }
   .consult-chat-empty > p { font-size: 27px; }
@@ -1416,6 +1490,8 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .consult-composer { padding: 9px; gap: 6px; }
   .consult-composer textarea { padding: 12px; font-size: 12px; }
   .consult-composer > button { width: 42px; height: 42px; flex-basis: 42px; }
+  .consult-chat-alert { align-items: flex-start; flex-direction: column; }
+  .consult-chat-alert button { width: 100%; justify-content: center; }
   .consult-quiz { min-height: 470px; padding: 24px 16px; }
   .consult-quiz-progress { align-items: flex-start; flex-direction: column; gap: 10px; }
   .consult-quiz-progress > div { width: 100%; }
@@ -1432,9 +1508,16 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .consult-photo-drop img { height: 280px; }
   .consult-photo-copy { padding: 8px 3px 12px; }
   .consult-disclaimer { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .consult-auth-modal { padding: 12px; align-items: end; }
+  .consult-auth-modal > section { max-height: calc(100svh - 24px); padding: 32px 20px 24px; overflow-y: auto; border-radius: 20px 20px 12px 12px; }
+  .consult-auth-switch { align-items: flex-start; flex-direction: column; gap: 10px; }
   .sticky-chat { right: 12px; bottom: 12px; }
   .sticky-chat-launcher { width: 56px; min-width: 56px; height: 56px; padding: 0; }
   .sticky-chat-launcher b { display: none; }
   .sticky-chat-panel { width: min(366px, calc(100vw - 24px)); }
   .sticky-chat-body { height: min(330px, 43vh); }
+  .privacy-page > article { width: min(100% - 36px, 880px); padding: 64px 0 80px; }
+  .privacy-page h1 { font-size: clamp(46px, 14vw, 62px); }
+  .privacy-intro { margin-bottom: 42px; font-size: 14px; }
+  .privacy-page article section { padding: 25px 0; grid-template-columns: 1fr; gap: 11px; }
 }

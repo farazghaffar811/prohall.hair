@@ -1,5 +1,6 @@
 import "./globals.css";
 import StickyChat from "./components/StickyChat";
+import ConsultTokenCapture from "./components/ConsultTokenCapture";
 
 export const metadata = {
   title: "Prohall Professional — Brazilian Hair Science",
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <ConsultTokenCapture />
         {children}
         <StickyChat />
       </body>

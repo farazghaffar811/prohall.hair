@@ -2,7 +2,7 @@ import ConsultationClient from "./ConsultationClient";
 
 export const metadata = {
   title: "Hair Consultation | Prohall Professional",
-  description: "Explore a guided Prohall hair consultation and discover a routine matched to your hair goals."
+  description: "Get advice-only hair guidance based on your texture, routine, chemical history and hair goals."
 };
 
 export default function ConsultationPage() {
