@@ -167,9 +167,12 @@ export default function ConsultationClient() {
           <span className="active" aria-current="page"><Icon name="spark" /> Consultation</span>
         </nav>
 
-        <div className="consult-sidebar-note">
-          <span>Frontend preview</span>
-          <p>Personalized AI replies and account history will be connected in a later phase.</p>
+        <div className="consult-sidebar-auth" aria-label="Consultation account">
+          <span>Save your consultations</span>
+          <div>
+            <button className="consult-auth-login" type="button" data-auth-mode="login">Log in</button>
+            <button className="consult-auth-signup" type="button" data-auth-mode="signup">Sign up</button>
+          </div>
         </div>
       </aside>
 
