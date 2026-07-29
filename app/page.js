@@ -184,27 +184,36 @@ export default function Home() {
 
         <div className="product-grid">
           {visibleProducts.map((product, index) => (
-            <article className={`product-card tone-${product.tone}`} key={product.name} style={{ "--delay": `${index * 65}ms` }}>
-              <div className="product-meta">
-                <span>{product.category}</span>
-                <span>{product.size || product.note}</span>
+            <article
+              className={`product-card product-${product.slug} tone-${product.tone}`}
+              key={product.name}
+              style={{ "--delay": `${index * 65}ms` }}
+            >
+              <div className="product-media">
+                <div className="product-meta">
+                  <span>{product.category}</span>
+                  <span>{product.size || product.note}</span>
+                </div>
+                <a className="product-visual" href={`/products/${product.slug}`} aria-label={`View ${product.name} guide`}>
+                  <img src={product.image} alt={product.name} />
+                </a>
               </div>
-              <a className="product-visual" href={`/products/${product.slug}`} aria-label={`View ${product.name} manual`}>
-                <img src={product.image} alt={product.name} />
-              </a>
-              <div className="product-bottom">
-                <div className="product-copy">
+              <div className="product-banner">
+                <a className="product-copy" href={`/products/${product.slug}`}>
                   <p>{product.type}</p>
                   <h3>{product.name}</h3>
-                  {product.amazonUrl && <span className="product-claim">{product.note} · Formaldehyde-free</span>}
-                </div>
+                  <span className="product-claim">{product.note}</span>
+                </a>
                 <div className="product-actions">
                   {product.amazonUrl && (
                     <a className="amazon-link" href={product.amazonUrl} target="_blank" rel="noreferrer">
-                      Buy on Amazon <ArrowIcon />
+                      Amazon <ArrowIcon />
                     </a>
                   )}
-                  <a className="circle-link" href={`/products/${product.slug}`} aria-label={`View ${product.name} manual`}><ArrowIcon /></a>
+                  <a className="product-guide-link" href={`/products/${product.slug}`}>
+                    <span>View product guide</span>
+                    <span className="circle-link" aria-hidden="true"><ArrowIcon /></span>
+                  </a>
                 </div>
               </div>
             </article>
