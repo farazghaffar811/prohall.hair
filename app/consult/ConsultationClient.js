@@ -10,7 +10,6 @@ import {
   getOrCreateSessionId,
   getStoredConsultToken,
   isConsultApiConfigured,
-  isSafeProhallSignInUrl,
   loadStoredConversation,
   normalizeConversation,
   parseAssistantReply,
@@ -117,7 +116,7 @@ export default function ConsultationClient() {
   const [hydrated, setHydrated] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
   const [chatError, setChatError] = useState("");
-  const [gateUrl, setGateUrl] = useState("");
+  const [authGate, setAuthGate] = useState(false);
   const [retryAfter, setRetryAfter] = useState(0);
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
@@ -180,7 +179,7 @@ export default function ConsultationClient() {
   useEffect(() => {
     if (!feedRef.current) return;
     feedRef.current.scrollTop = feedRef.current.scrollHeight;
-  }, [messages, chatError, gateUrl]);
+  }, [messages, chatError, authGate]);
 
   useEffect(() => {
     if (!retryAfter) return undefined;
@@ -231,7 +230,7 @@ export default function ConsultationClient() {
 
     setIsWaiting(true);
     setChatError("");
-    setGateUrl("");
+    setAuthGate(false);
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -274,13 +273,8 @@ export default function ConsultationClient() {
 
       if (error.code === "signin_required") {
         window.localStorage.setItem(CONSULT_STORAGE.pendingReply, "true");
-        if (isSafeProhallSignInUrl(error.signInUrl)) {
-          setGateUrl(error.signInUrl);
-          setChatError("Your three complimentary replies are complete. Redirecting you to secure sign-in so this consultation can continue.");
-          window.setTimeout(() => window.location.assign(error.signInUrl), 900);
-        } else {
-          setChatError("Sign-in is required, but the returned sign-in address could not be verified.");
-        }
+        setAuthGate(true);
+        setChatError("Your three complimentary replies are complete. Log in or create an account here to continue this consultation.");
         return;
       }
 
@@ -333,6 +327,7 @@ export default function ConsultationClient() {
     setToken(nextToken);
     setAccount((current) => ({ ...(current || {}), email }));
     setAuthMode(null);
+    setAuthGate(false);
     setMode("chat");
     setChatError("");
   };
@@ -344,7 +339,7 @@ export default function ConsultationClient() {
     setAccount(null);
     setMessages([]);
     setChatError("");
-    setGateUrl("");
+    setAuthGate(false);
     createNewConsultSession();
     setSessionId(getOrCreateSessionId());
   };
@@ -355,7 +350,7 @@ export default function ConsultationClient() {
     setMessages([]);
     setChatText("");
     setChatError("");
-    setGateUrl("");
+    setAuthGate(false);
     setRetryAfter(0);
     setMode("chat");
     setQuizStep(0);
@@ -390,7 +385,7 @@ export default function ConsultationClient() {
   };
 
   const openGate = () => {
-    if (isSafeProhallSignInUrl(gateUrl)) window.location.assign(gateUrl);
+    setAuthMode("login");
   };
 
   return (
@@ -519,8 +514,8 @@ export default function ConsultationClient() {
                     {chatError && (
                       <div className="consult-chat-alert" role="alert">
                         <span>{chatError}</span>
-                        {gateUrl && <button type="button" onClick={openGate}>Continue to secure sign-in <Icon name="arrow" /></button>}
-                        {!gateUrl && !configured && <button type="button" onClick={() => setAuthMode("login")}>View account setup</button>}
+                        {authGate && <button type="button" onClick={openGate}>Continue to secure sign-in <Icon name="arrow" /></button>}
+                        {!authGate && !configured && <button type="button" onClick={() => setAuthMode("login")}>View account setup</button>}
                       </div>
                     )}
                   </div>
