@@ -1741,16 +1741,37 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   object-fit: contain;
   mix-blend-mode: normal;
 }
+.product-viewer.product-select-one { min-height: 610px; }
+.product-viewer.product-select-one .product-gallery { min-height: 500px; }
 .product-viewer.product-select-one .product-gallery::before { display: none; }
-.product-viewer.product-select-one .product-zoom-stage { padding: 0; background: var(--white); }
+.product-viewer.product-select-one .product-zoom-stage {
+  min-height: 500px;
+  padding: 20px;
+  border: 1px solid rgba(0, 46, 91, 0.1);
+  background: radial-gradient(circle at 50% 46%, #ffffff 0 32%, #eaf8f5 64%, #d4efe9 100%);
+}
 .product-viewer.product-select-one .product-gallery.single .product-zoom-stage img {
-  width: min(96%, 540px);
-  height: min(96%, 540px);
-  border-radius: 12px;
+  width: auto;
+  height: min(500px, 58vh);
+  max-width: 84%;
+  max-height: 500px;
+  border-radius: 0;
   object-fit: contain;
   mix-blend-mode: normal;
+  filter: drop-shadow(0 24px 24px rgba(0, 46, 91, 0.16));
 }
-.product-lightbox.product-select-one .lightbox-image img { border-radius: 12px; mix-blend-mode: normal; }
+.product-lightbox.product-select-one .lightbox-image {
+  background: radial-gradient(circle at 50% 46%, #ffffff 0 34%, #edf9f7 68%, #d9f0ec 100%);
+}
+.product-lightbox.product-select-one .lightbox-image img {
+  width: auto;
+  height: min(72vh, 680px);
+  max-width: 82%;
+  max-height: 88%;
+  border-radius: 0;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 28px 30px rgba(0, 46, 91, 0.17));
+}
 .home-page .hero-content > p,
 .home-page .section-heading > p,
 .home-page .routine-intro > p:not(.overline),
@@ -1826,4 +1847,25 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .home-page .benefit-list span,
   .home-page .steps span,
   .home-page .faq-item > span b { font-size: 14px; }
+}
+
+@media (max-width: 640px) {
+  .product-viewer.product-select-one { min-height: 470px; }
+  .product-viewer.product-select-one .product-gallery { min-height: 330px; }
+  .product-viewer.product-select-one .product-zoom-stage {
+    min-height: 330px;
+    padding: 12px;
+  }
+  .product-viewer.product-select-one .product-gallery.single .product-zoom-stage img {
+    width: auto;
+    height: min(320px, 46vh);
+    max-width: 78%;
+    max-height: 320px;
+  }
+  .product-lightbox.product-select-one .lightbox-image img {
+    width: auto;
+    height: min(70vh, 560px);
+    max-width: 86%;
+    max-height: 84%;
+  }
 }
