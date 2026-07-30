@@ -23,6 +23,7 @@ export const products = [
     note: "Formaldehyde-free",
     size: "10.1 fl oz / 300 ml",
     image: "/images/select-one-300ml-02.webp",
+    cardImage: "/images/select-one-300ml-card.webp",
     tone: "mint",
     category: "Smoothing",
     amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",

@@ -195,7 +195,7 @@ export default function Home() {
                   <span>{product.size || product.note}</span>
                 </div>
                 <a className="product-visual" href={`/products/${product.slug}`} aria-label={`View ${product.name} guide`}>
-                  <img src={product.image} alt={product.name} />
+                  <img src={product.cardImage || product.image} alt={product.name} />
                 </a>
               </div>
               <div className="product-banner">
