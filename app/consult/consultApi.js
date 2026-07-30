@@ -1,6 +1,6 @@
 export const CONSULT_API_BASE = (
   process.env.NEXT_PUBLIC_PROHALL_CONSULT_API_BASE ||
-  "https://prohall.ai/api/public/consult"
+  "https://www.prohall.ai/api/public/consult"
 ).replace(/\/+$/, "");
 
 export const CONSULT_API_KEY =
@@ -110,7 +110,7 @@ export function isSafeProhallSignInUrl(value) {
     const url = new URL(value);
     return (
       url.protocol === "https:" &&
-      url.hostname === "prohall.ai" &&
+      (url.hostname === "prohall.ai" || url.hostname === "www.prohall.ai") &&
       url.pathname.startsWith("/api/public/consult/session/start")
     );
   } catch {
