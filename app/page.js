@@ -140,7 +140,7 @@ export default function Home() {
             rel="noreferrer"
             aria-label="Visit Dily professional hairstylist on Instagram"
           >
-            <img src="/images/dily-hairstylist.webp" alt="Dily, Prohall professional hairstylist" />
+            <img src="/images/dily-salon-portrait.webp" alt="Dily, Prohall professional hairstylist" />
             <div className="stylist-caption">
               <div>
                 <small>MEET YOUR PROHALL EXPERT</small>

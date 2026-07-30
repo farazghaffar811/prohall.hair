@@ -63,10 +63,15 @@ export default async function ProductManualPage({ params }) {
           <p className="overline">Before you begin</p>
           <h2>Prepare your setup.</h2>
         </div>
-        <div className="tool-list">
-          {product.tools.map((tool, index) => (
-            <span key={tool}><b>{String(index + 1).padStart(2, "0")}</b>{tool}</span>
-          ))}
+        <div className="manual-prep-details">
+          {product.preparationNote && (
+            <p className="manual-prep-note"><strong>Hair and heat guidance</strong>{product.preparationNote}</p>
+          )}
+          <div className="tool-list">
+            {product.tools.map((tool, index) => (
+              <span key={tool}><b>{String(index + 1).padStart(2, "0")}</b>{tool}</span>
+            ))}
+          </div>
         </div>
       </section>
 

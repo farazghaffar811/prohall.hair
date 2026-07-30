@@ -1,20 +1,26 @@
 const selectOneSteps = [
-  ["Wash thoroughly", "Shampoo 2–3 times to remove residue and buildup. Do not apply conditioner."],
-  ["Dry to 60%", "Blow-dry until the hair is mostly dry but still holds a little moisture."],
-  ["Section the hair", "Divide the hair into 4–6 manageable sections using sectioning clips."],
-  ["Apply Select One", "Wearing gloves, apply the cream section by section, staying 1 cm away from the scalp. Comb through for even coverage."],
-  ["Allow it to process", "Leave on for 60–90 minutes. Fine or fragile hair may need less processing time."],
-  ["Rinse completely", "Rinse with room-temperature water until every trace of product has been removed."],
-  ["Dry and seal", "Blow-dry completely. Working in very thin sections, seal with an adjustable flat iron suited to the condition of your hair."],
-  ["Finish the service", "Let hair cool. An Equalize pH-balancing mask may be applied afterward, then rinsed and dried."]
+  ["Shampoo your hair", "Wash thoroughly with your regular shampoo 2–3 times to remove residue and impurities. Rinse completely so the hair is clean and ready for treatment."],
+  ["Blow-dry to 80%", "Blow-dry until the hair is about 80% dry. Leave a little moisture so the Select One cream can penetrate and coat the strands effectively."],
+  ["Section and apply Select One", "Use clips to divide the hair into 4–6 sections. Apply Select One evenly from root to tip, then use a fine-tooth comb to distribute it through every strand. Keep the product about 1 cm away from the scalp and never apply it directly to the scalp."],
+  ["Let it process", "Allow the treatment to process for 60–90 minutes. Curly hair may need 90 minutes for deeper penetration; thinner hair may need only 45–60 minutes. Processing time can influence how straight the finished hair becomes."],
+  ["Rinse thoroughly", "Rinse thoroughly with water until every trace of the product has been removed. No residue should remain before the finishing steps."],
+  ["Blow-dry again", "Blow-dry the hair completely. Use a downward stretching technique to help create a sleek, smooth finish."],
+  ["Seal with the flat iron", "Work in very thin sections. For normal hair, pass the flat iron over each strand 15–20 times at 450°F. For bleached, blonde, very fragile or heat-sensitive hair, reduce the temperature to 375°F and use 10–15 passes. Always make sure the hair can tolerate the heat before continuing."],
+  ["Finish with Equalize Mask", "After ironing, you may apply Prohall Equalize Mask to enhance softness, texture and shine. This step is optional but recommended. The treatment may shift hair color by one or two levels; hair may be colored on the same day if desired."]
 ];
+
+const selectOnePreparationNote =
+  "Very thin, bleached, blonde or fragile hair requires extra care during the ironing process. Use reduced heat when needed, complete a strand test first and follow the instructions carefully. High temperatures can damage hair that cannot tolerate them.";
+
+const selectOneCaution =
+  "Attention blondes: because blonde or bleached hair is more porous and fragile, Select One may straighten it by up to approximately 70% and may not produce the same straightening level as on other hair types. Perform a patch and strand test first, never apply the product directly to the scalp, and reduce heat for fine, blonde, bleached or fragile hair. Professional assistance is recommended.";
 
 export const products = [
   {
     slug: "select-one",
     name: "Select One",
     type: "Brazilian keratin treatment",
-    note: "Up to 6 months",
+    note: "Formaldehyde-free",
     size: "10.1 fl oz / 300 ml",
     image: "/images/select-one-300ml-08.webp",
     tone: "mint",
@@ -27,9 +33,10 @@ export const products = [
     ingredients: "Collagen, coconut oil, Lumini System and lactic acid",
     features: ["Formaldehyde-free", "Cruelty-free", "Coconut scent"],
     duration: "Approximately 2–3 hours",
-    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron"],
+    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
+    preparationNote: selectOnePreparationNote,
     steps: selectOneSteps,
-    caution: "Perform a patch and strand test first. Never apply directly to the scalp. Reduce heat for bleached, fine or fragile hair; professional assistance is recommended."
+    caution: selectOneCaution
   },
   {
     slug: "select-one-travel",
@@ -43,9 +50,10 @@ export const products = [
     youtubeId: "QeH0BC5M26w",
     description: "The travel-size format of the Select One professional smoothing treatment.",
     duration: "Approximately 2–3 hours",
-    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron"],
+    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
+    preparationNote: selectOnePreparationNote,
     steps: selectOneSteps,
-    caution: "Perform a patch and strand test first. Never apply directly to the scalp. Use lower heat on blonde, fine or fragile hair."
+    caution: selectOneCaution
   },
   {
     slug: "force-hair",
