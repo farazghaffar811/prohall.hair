@@ -22,7 +22,7 @@ export const products = [
     type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
     size: "10.1 fl oz / 300 ml",
-    image: "/images/select-one-300ml-08.webp",
+    image: "/images/select-one-300ml-02.webp",
     tone: "mint",
     category: "Smoothing",
     amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",
@@ -41,7 +41,7 @@ export const products = [
   {
     slug: "select-one-travel",
     name: "Select One 4.05 oz",
-    type: "Travel-size smoothing",
+    type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
     size: "4.05 fl oz / 120 ml",
     image: "/images/select-one-405oz.png",

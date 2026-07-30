@@ -1107,6 +1107,37 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .footer-main { grid-template-columns: 1fr; gap: 32px; }
   .footer-nav { margin-top: 8px; }
   .footer-bottom { margin-top: 50px; flex-direction: column; gap: 12px; }
+  .hero-kicker, .overline { font-size: 10.5px; line-height: 1.45; }
+  .button, .filters button { font-size: 11px; }
+  .hero-trust span { font-size: 13px; }
+  .hero-trust b { font-size: 11px; }
+  .stylist-caption { min-height: 142px; }
+  .stylist-caption small { font-size: 9px; }
+  .stylist-caption > div > span { font-size: 11.5px; }
+  .stylist-caption p { font-size: 10.5px; line-height: 1.55; }
+  .stylist-link { font-size: 10px; }
+  .hero-badge span { font-size: 9px; }
+  .quick-paths span { font-size: 10px; }
+  .quick-paths b { font-size: 15px; }
+  .product-copy p { font-size: 11px; }
+  .product-claim { font-size: 13.5px; }
+  .amazon-link, .product-guide-link { font-size: 10.5px; }
+  .modal-facts span, .feature-pills span { font-size: 10px; }
+  .modal-detail h3 { font-size: 12px; }
+  .modal-detail p, .modal-detail ul { font-size: 14px; }
+  .manual-back { font-size: 10px; }
+  .manual-facts small { font-size: 10.5px; }
+  .product-viewer-top span, .product-viewer-bottom small, .manual-product-label { font-size: 10px; }
+  .manual-step-copy > span { font-size: 10px; }
+  .manual-step-copy p, .manual-caution p { font-size: 15px; }
+  .manual-caution > span { font-size: 10.5px; }
+  .manual-faq-heading > p, .manual-faq-answer p { font-size: 15px; }
+  .manual-faq-question { font-size: 16.5px; }
+  .routine-options > a > span, .steps span, .benefit-list span { font-size: 10px; }
+  .routine-options p, .benefit-list p { font-size: 13px; line-height: 1.65; }
+  .steps p, .faq-item p { font-size: 14px; }
+  .faq-item > span { font-size: 15px; }
+  .footer-nav { font-size: 13px; }
 }
 
 @media (max-width: 360px) {
@@ -1523,4 +1554,276 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .privacy-page h1 { font-size: clamp(46px, 14vw, 62px); }
   .privacy-intro { margin-bottom: 42px; font-size: 14px; }
   .privacy-page article section { padding: 25px 0; grid-template-columns: 1fr; gap: 11px; }
+  .consult-mobile-auth { font-size: 11px; }
+  .consult-intro > p:last-child { font-size: 15px; }
+  .consult-mode-heading span { font-size: 12px; }
+  .consult-modes > button strong { font-size: 13.5px; }
+  .consult-chat-save-state > span { font-size: 10.5px; }
+  .consult-chat-empty > span { font-size: 15px; }
+  .consult-chat-empty > div:last-child button { font-size: 12px; }
+  .consult-message span { font-size: 11px; }
+  .consult-message p { font-size: 15px; }
+  .consult-reply-options button { font-size: 12.5px; }
+  .consult-chat-alert { font-size: 14px; }
+  .consult-chat-alert button { font-size: 10.5px; }
+  .consult-composer textarea { font-size: 16px; }
+  .consult-quiz-progress > span, .consult-quiz-question > p { font-size: 11px; }
+  .consult-quiz-question > div button { font-size: 15px; }
+  .consult-result > p { font-size: 11px; }
+  .consult-result-facts span { font-size: 14px; }
+  .consult-result-facts small { font-size: 10.5px; }
+  .consult-result-actions a, .consult-result-actions button { font-size: 11px; }
+  .consult-photo-copy li, .consult-disclaimer p { font-size: 14px; }
+  .consult-disclaimer > span { font-size: 12px; }
+  .consult-auth-lead { font-size: 14.5px; }
+  .consult-auth-modal label > span { font-size: 11px; }
+  .consult-auth-modal input { font-size: 16px; }
+  .consult-auth-submit { font-size: 12px; }
+  .consult-auth-switch { font-size: 13px; }
+  .consult-auth-privacy { font-size: 11px; }
+  .sticky-chat-message > span { font-size: 10.5px; }
+  .sticky-chat-message p { font-size: 14px; }
+  .sticky-chat-suggestions button { font-size: 12px; }
+  .sticky-chat-form input { font-size: 16px; }
+  .sticky-chat-consult { font-size: 11px; }
+}
+
+
+/* Site-wide readability pass */
+:root { --text-soft: #3f6078; }
+.topbar, .topbar a { font-size: 10px; }
+.logo small { font-size: 8.5px; }
+.nav-mega > div > span { font-size: 9.5px; }
+.nav-mega > div > a { font-size: 12.5px; }
+.nav-all-products, .header-help { font-size: 10.5px; }
+.hero-kicker, .overline { font-size: 10.5px; line-height: 1.45; }
+.button { font-size: 11px; }
+.hero-content > p { font-size: 16px; }
+.hero-trust span { font-size: 13px; }
+.hero-trust b { font-size: 11px; }
+.stylist-caption { min-height: 156px; }
+.stylist-caption small { font-size: 9.5px; }
+.stylist-caption > div > span { font-size: 12px; }
+.stylist-caption p { font-size: 11px; line-height: 1.55; }
+.stylist-link { font-size: 10.5px; }
+.featured-copy small { font-size: 9.5px; }
+.featured-copy span { font-size: 12px; line-height: 1.55; }
+.hero-badge span { font-size: 9px; }
+.quick-paths span { font-size: 10px; }
+.quick-paths b { font-size: 15px; }
+.filters button { font-size: 10.5px; }
+.catalog-toolbar > span { font-size: 12px; }
+.product-meta { font-size: 12px; }
+.product-copy p { font-size: 11.5px; }
+.product-claim { font-size: 13.5px; }
+.amazon-link, .product-guide-link { font-size: 10.5px; }
+.modal-visual > span { font-size: 10px; }
+.modal-facts span, .feature-pills span { font-size: 10.5px; }
+.modal-description { font-size: 15.5px; }
+.modal-detail h3 { font-size: 12.5px; }
+.modal-detail p, .modal-detail ul { font-size: 14px; }
+.manual-back { font-size: 11px; }
+.manual-hero-copy > p:not(.overline) { font-size: 16px; }
+.manual-facts small { font-size: 10.5px; }
+.manual-product-label, .product-viewer-top span, .product-viewer-bottom small { font-size: 10px; }
+.zoom-controls span, .open-zoom-button, .lightbox-header small, .lightbox-footer > span { font-size: 10px; }
+.manual-hero-video-heading span, .manual-hero-video-footer small { font-size: 10px; }
+.manual-hero-video-heading strong { font-size: 12.5px; }
+.manual-video-pending p { font-size: 14px; }
+.manual-prep-note { font-size: 15px; }
+.manual-prep-note strong, .tool-list b { font-size: 10.5px; }
+.tool-list span { font-size: 15px; }
+.manual-tutorial-copy > p:last-child, .manual-steps-heading > p:last-child { font-size: 15px; }
+.manual-step-visual > span { font-size: 10px; }
+.manual-step-copy > span { font-size: 10.5px; }
+.manual-step-copy p, .manual-caution p { font-size: 15px; }
+.manual-caution > span { font-size: 10.5px; }
+.manual-faq-heading > p, .manual-faq-answer p { font-size: 15px; }
+.manual-faq-number { font-size: 10.5px; }
+.manual-faq-question { font-size: clamp(16px, 1.35vw, 19px); }
+.manual-footer p { font-size: 11.5px; }
+.routine-intro > p:not(.overline), .results-content > p:not(.overline), .support-copy p { font-size: 15.5px; }
+.text-arrow { font-size: 12px; }
+.routine-options > a > span, .results-media > span, .benefit-list span, .steps span { font-size: 10px; }
+.routine-options p, .benefit-list p { font-size: 13px; line-height: 1.65; }
+.benefit-list strong { font-size: 14px; }
+.steps p, .faq-item p { font-size: 14px; }
+.faq-item > span { font-size: 15px; }
+.faq-item > span b { font-size: 10px; }
+.footer-nav { font-size: 13px; }
+.footer-bottom { color: rgba(255,255,255,0.76); font-size: 10.5px; line-height: 1.55; }
+.consult-new { font-size: 12px; }
+.consult-sidebar nav a, .consult-sidebar nav > span, .consult-sidebar nav > button { font-size: 13.5px; }
+.consult-sidebar nav > button small { font-size: 11px; }
+.consult-sidebar-auth > span { font-size: 12.5px; }
+.consult-sidebar-auth button { font-size: 12px; }
+.consult-sidebar-account > span { font-size: 10.5px; }
+.consult-sidebar-account strong { font-size: 13.5px; }
+.consult-sidebar-account small { font-size: 12px; }
+.consult-sidebar-account button { font-size: 11.5px; }
+.consult-header > p { font-size: 14px; }
+.consult-header-actions > a { font-size: 12px; }
+.consult-pill { font-size: 12px; }
+.consult-intro > p:last-child { font-size: 16px; }
+.consult-mode-heading span { font-size: 12px; }
+.consult-mode-heading small { font-size: 11.5px; }
+.consult-modes > button small { font-size: 13.5px; }
+.consult-chat-save-state > span { font-size: 11.5px; }
+.consult-chat-save-state button { font-size: 10.5px; }
+.consult-chat-empty > span { font-size: 15.5px; }
+.consult-chat-empty > div:last-child button { font-size: 12.5px; }
+.consult-message span { font-size: 11.5px; }
+.consult-message p { font-size: 15.5px; }
+.consult-reply-options button { font-size: 12.5px; }
+.consult-chat-alert { font-size: 14px; }
+.consult-chat-alert button { font-size: 10.5px; }
+.consult-composer textarea { font-size: 16px; }
+.consult-rate-limit { font-size: 11.5px; }
+.consult-quiz-progress > span, .consult-quiz-question > p { font-size: 11.5px; }
+.consult-quiz-question > div button { font-size: 15.5px; }
+.consult-quiz-back { font-size: 13.5px; }
+.consult-result > p { font-size: 11.5px; }
+.consult-result > span:not(.consult-result-check) { font-size: 16px; }
+.consult-result-facts span { font-size: 14px; }
+.consult-result-facts small { font-size: 10.5px; }
+.consult-result-actions a, .consult-result-actions button { font-size: 11.5px; }
+.consult-photo-drop p, .consult-photo-copy li { font-size: 14.5px; }
+.consult-photo-drop small { font-size: 11.5px; }
+.consult-photo-ready span { font-size: 12.5px; }
+.consult-photo-ready button { font-size: 11.5px; }
+.consult-disclaimer > span { font-size: 12.5px; }
+.consult-disclaimer p { font-size: 13.5px; }
+.consult-auth-lead { font-size: 15px; }
+.consult-auth-modal label > span { font-size: 11.5px; }
+.consult-auth-modal input { font-size: 16px; }
+.consult-auth-status { font-size: 13px; }
+.consult-auth-submit { font-size: 12px; }
+.consult-auth-switch { font-size: 13px; }
+.consult-auth-privacy { font-size: 11.5px; }
+.sticky-chat-avatar span, .sticky-chat-message > span { font-size: 10.5px; }
+.sticky-chat-head > div:nth-child(2) span { font-size: 11.5px; }
+.sticky-chat-message p { font-size: 14px; }
+.sticky-chat-suggestions button { font-size: 12px; }
+.sticky-chat-form input { font-size: 16px; }
+.sticky-chat-consult { font-size: 11.5px; }
+.privacy-intro { font-size: 17px; }
+.privacy-page section p { font-size: 15.5px; }
+
+@media (max-width: 640px) {
+  .topbar a { font-size: 10px; }
+  .site-header .logo { font-size: 18px; }
+  .mobile-nav-cta { font-size: 11px !important; }
+  .hero-content > p { font-size: 15.5px; }
+  .product-meta { font-size: 12px; }
+  .product-copy h3 { font-size: 27px; }
+  .manual-hero-copy > p:not(.overline) { font-size: 15.5px; }
+  .manual-facts span, .tool-list span { font-size: 15px; }
+  .manual-faq-question { font-size: 16.5px; }
+  .routine-options h3 { font-size: 20px; }
+}
+
+@media (max-width: 680px) {
+  .consult-mobile-auth { font-size: 11.5px; }
+  .consult-intro > p:last-child { font-size: 15.5px; }
+  .consult-modes > button strong { font-size: 14px; }
+  .consult-chat-save-state > span { font-size: 11px; }
+  .privacy-intro { font-size: 15.5px; }
+}
+
+
+/* Homepage clarity and Select One artwork */
+.product-card.product-select-one .product-visual { padding: 8px 18px 18px; }
+.product-card.product-select-one .product-visual img {
+  inset: 8px 18px 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 26px);
+  border-radius: 12px;
+  object-fit: cover;
+  mix-blend-mode: normal;
+}
+.product-viewer.product-select-one .product-gallery::before { display: none; }
+.product-viewer.product-select-one .product-zoom-stage { padding: 0; background: var(--white); }
+.product-viewer.product-select-one .product-gallery.single .product-zoom-stage img {
+  width: min(96%, 540px);
+  height: min(96%, 540px);
+  border-radius: 12px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+.product-lightbox.product-select-one .lightbox-image img { border-radius: 12px; mix-blend-mode: normal; }
+.home-page .hero-content > p,
+.home-page .section-heading > p,
+.home-page .routine-intro > p:not(.overline),
+.home-page .results-content > p:not(.overline),
+.home-page .support-copy p { color: #35566f; font-size: 17px; line-height: 1.78; }
+.home-page .hero-kicker,
+.home-page .overline { font-size: 12px; }
+.home-page .button { font-size: 12px; }
+.home-page .hero-trust span { font-size: 14px; line-height: 1.5; }
+.home-page .stylist-caption > div > span { font-size: 13px; }
+.home-page .stylist-caption p { font-size: 12.5px; line-height: 1.6; }
+.home-page .stylist-link { font-size: 11.5px; }
+.home-page .quick-paths b { font-size: 17px; }
+.home-page .filters button { font-size: 11.5px; }
+.home-page .catalog-toolbar > span { font-size: 13px; }
+.home-page .product-meta { font-size: 13px; }
+.home-page .product-copy p { font-size: 13px; }
+.home-page .product-claim { font-size: 15.5px; }
+.home-page .amazon-link,
+.home-page .product-guide-link { font-size: 11.5px; }
+.home-page .routine-options h3 { font-size: 23px; }
+.home-page .routine-options p,
+.home-page .benefit-list p { color: #35566f; font-size: 15px; line-height: 1.65; }
+.home-page .benefit-list strong { font-size: 16px; }
+.home-page .steps h3 { font-size: 22px; }
+.home-page .steps p { color: #35566f; font-size: 16px; line-height: 1.72; }
+.home-page .faq-item > span { font-size: 16px; line-height: 1.5; }
+.home-page .faq-item p { color: #35566f; font-size: 16px; line-height: 1.75; }
+.home-page .footer-nav { font-size: 14px; }
+.home-page .footer-bottom { font-size: 12px; }
+.home-page .hero-trust b,
+.home-page .quick-paths span,
+.home-page .routine-options > a > span,
+.home-page .benefit-list span,
+.home-page .steps span,
+.home-page .faq-item > span b {
+  color: #0c8b75;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .product-card.product-select-one .product-visual { padding: 6px 12px 14px; }
+  .product-card.product-select-one .product-visual img {
+    inset: 6px 12px 14px;
+    width: calc(100% - 24px);
+    height: calc(100% - 20px);
+  }
+  .home-page .hero-content > p,
+  .home-page .section-heading > p,
+  .home-page .routine-intro > p:not(.overline),
+  .home-page .results-content > p:not(.overline),
+  .home-page .support-copy p { font-size: 16.5px; }
+  .home-page .hero-kicker,
+  .home-page .overline { font-size: 11.5px; }
+  .home-page .button { font-size: 11.5px; }
+  .home-page .hero-trust span { font-size: 14px; }
+  .home-page .stylist-caption p { font-size: 12px; }
+  .home-page .quick-paths b { font-size: 16px; }
+  .home-page .product-meta { font-size: 12.5px; }
+  .home-page .product-copy p { font-size: 12.5px; }
+  .home-page .product-claim { font-size: 15px; }
+  .home-page .routine-options p,
+  .home-page .benefit-list p { font-size: 14.5px; }
+  .home-page .steps p,
+  .home-page .faq-item p { font-size: 15.5px; }
+  .home-page .hero-trust b,
+  .home-page .quick-paths span,
+  .home-page .routine-options > a > span,
+  .home-page .benefit-list span,
+  .home-page .steps span,
+  .home-page .faq-item > span b { font-size: 14px; }
 }

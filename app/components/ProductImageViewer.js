@@ -67,7 +67,7 @@ export default function ProductImageViewer({ product, images }) {
 
   return (
     <>
-      <div className={`manual-hero-product product-viewer tone-${product.tone}`}>
+      <div className={`manual-hero-product product-viewer product-${product.slug} tone-${product.tone}`}>
         <div className="product-viewer-top">
           <span>Selected product</span>
           <span>Hover to zoom · Click to expand</span>
@@ -123,7 +123,7 @@ export default function ProductImageViewer({ product, images }) {
       </div>
 
       {lightboxOpen && (
-        <div className="product-lightbox" role="dialog" aria-modal="true" aria-label={`${product.name} expanded product image`}>
+        <div className={`product-lightbox product-${product.slug}`} role="dialog" aria-modal="true" aria-label={`${product.name} expanded product image`}>
           <button className="lightbox-backdrop" type="button" onClick={() => setLightboxOpen(false)} aria-label="Close image viewer" />
           <div className="lightbox-panel">
             <div className="lightbox-header">

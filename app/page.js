@@ -53,7 +53,7 @@ export default function Home() {
   }, [menuOpen]);
 
   return (
-    <main>
+    <main className="home-page">
       <div className="topbar">
         <p>Professional Brazilian haircare</p>
         <a href="/consult">Need product help? <span>Start a consultation</span></a>
