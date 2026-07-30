@@ -41,7 +41,7 @@ export const products = [
   },
   {
     slug: "select-one-travel",
-    name: "Select One 4.05 oz",
+    name: "Select One",
     type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
     size: "4.05 fl oz / 120 ml",

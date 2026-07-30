@@ -82,7 +82,7 @@ export default function Home() {
               <div>
                 <span>Prohall</span>
                 <a href="/products/select-one" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One 10.1 oz</a>
-                <a href="/products/select-one-travel" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One </a>
+                <a href="/products/select-one-travel" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One</a>
               </div>
               <div>
                 <span>Masks</span>
