@@ -2103,6 +2103,13 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .home-page .faq-item > span b { font-size: 14px; }
 }
 
+/* Dily panel: hero on desktop, below products on mobile */
+.stylist-mobile { display: none; }
+@media (max-width: 900px) {
+  .hero .hero-media { display: none; }
+  .stylist-mobile { display: block; margin: 8px 16px 4px; }
+}
+
 /* Mobile: bring products higher up the page */
 @media (max-width: 640px) {
   .hero { padding-bottom: 14px; }

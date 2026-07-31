@@ -30,6 +30,32 @@ function StopIcon() {
   );
 }
 
+function StylistPanel() {
+  return (
+    <>
+      <a
+        className="hero-image-wrap stylist-panel"
+        href="https://www.instagram.com/dily_hair"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Visit Dily professional hairstylist on Instagram"
+      >
+        <img src="/images/dily-salon-portrait.webp" alt="Dily, Prohall professional hairstylist" />
+        <div className="stylist-caption">
+          <div>
+            <small>MEET YOUR PROHALL EXPERT</small>
+            <strong>Dily</strong>
+            <span>Professional hairstylist</span>
+            <p>Always here to answer your queries at the Prohall help desk.</p>
+          </div>
+          <span className="stylist-link">Instagram <ArrowIcon /></span>
+        </div>
+      </a>
+      <div className="hero-badge"><strong>20+</strong><span>years of<br />expertise</span></div>
+    </>
+  );
+}
+
 function SparkIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -241,25 +267,7 @@ export default function Home() {
         </div>
 
         <div className="hero-media">
-          <a
-            className="hero-image-wrap stylist-panel"
-            href="https://www.instagram.com/dily_hair"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Visit Dily professional hairstylist on Instagram"
-          >
-            <img src="/images/dily-salon-portrait.webp" alt="Dily, Prohall professional hairstylist" />
-            <div className="stylist-caption">
-              <div>
-                <small>MEET YOUR PROHALL EXPERT</small>
-                <strong>Dily</strong>
-                <span>Professional hairstylist</span>
-                <p>Always here to answer your queries at the Prohall help desk.</p>
-              </div>
-              <span className="stylist-link">Instagram <ArrowIcon /></span>
-            </div>
-          </a>
-          <div className="hero-badge"><strong>20+</strong><span>years of<br />expertise</span></div>
+          <StylistPanel />
         </div>
       </section>
 
@@ -327,6 +335,10 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="hero-media stylist-mobile" aria-label="Meet your Prohall expert">
+        <StylistPanel />
       </section>
 
       <section className="manuals section-shell" id="manuals">
