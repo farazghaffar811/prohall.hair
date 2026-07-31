@@ -61,7 +61,7 @@ export const products = [
     name: "Force Hair",
     type: "Strengthening system",
     note: "3-step ritual",
-    image: "/images/force-hair-pack.webp",
+    image: "/images/force-hair-premium.png",
     tone: "sky",
     category: "Repair",
     youtubeId: "zaSED158udE",
