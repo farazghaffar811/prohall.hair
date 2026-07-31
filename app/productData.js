@@ -45,7 +45,7 @@ export const products = [
     type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
     size: "4.05 fl oz / 120 ml",
-    image: "/images/select-one-travel-v2.png",
+    image: "/images/select-one-travel-v3.png",
     tone: "blue",
     category: "Smoothing",
     youtubeId: "QeH0BC5M26w",
