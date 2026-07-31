@@ -38,7 +38,12 @@ export default async function ProductManualPage({ params }) {
         <a className="logo" href="/" aria-label="Prohall Professional home">
           PROHALL <small>PROFESSIONAL</small>
         </a>
-        <a className="manual-back" href="/#products">← All products</a>
+        <div className="manual-header-links">
+          <a className="manual-back" href="/#manuals">← All manuals</a>
+          <a className="manual-consult-link" href={`/consult?prompt=${encodeURIComponent(`I'm using ${product.name} (${product.type}). I have a question about how to apply it.`)}`}>
+            Ask about this product <ArrowIcon />
+          </a>
+        </div>
       </header>
 
       <section className="manual-hero">
@@ -161,10 +166,13 @@ export default async function ProductManualPage({ params }) {
           <h2>Ready for your<br />Prohall routine?</h2>
         </div>
         <div className="manual-finish-actions">
+          <a className="button navy" href={`/consult?prompt=${encodeURIComponent(`I'm using ${product.name} (${product.type}). I have a question about how to apply it.`)}`}>
+            Ask the consultant <ArrowIcon />
+          </a>
           {product.amazonUrl && (
             <a className="button primary" href={product.amazonUrl} target="_blank" rel="noreferrer">Buy on Amazon <ArrowIcon /></a>
           )}
-          <a className="button secondary" href="/#products">Explore more products</a>
+          <a className="button secondary" href="/#manuals">All product manuals</a>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { products } from "./productData";
 
 const categories = ["All", "Smoothing", "Repair", "Masks", "Finishing"];
@@ -9,6 +9,23 @@ function ArrowIcon() {
   return (
     <svg viewBox="0 0 20 20" aria-hidden="true">
       <path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MicIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function StopIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="7" y="7" width="10" height="10" rx="2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -26,6 +43,51 @@ export default function Home() {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [filter, setFilter] = useState("All");
   const [faqOpen, setFaqOpen] = useState(0);
+  const [consultQuery, setConsultQuery] = useState("");
+  const [isDictating, setIsDictating] = useState(false);
+  const [dictationSupported, setDictationSupported] = useState(false);
+  const recognitionRef = useRef(null);
+  const dictationBaseRef = useRef("");
+
+  useEffect(() => {
+    setDictationSupported(Boolean(window.SpeechRecognition || window.webkitSpeechRecognition));
+    return () => recognitionRef.current?.stop();
+  }, []);
+
+  const toggleDictation = () => {
+    if (isDictating) {
+      recognitionRef.current?.stop();
+      return;
+    }
+    const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognitionImpl) return;
+    const recognition = new SpeechRecognitionImpl();
+    recognition.lang = navigator.language || "en-US";
+    recognition.interimResults = true;
+    recognition.continuous = true;
+    dictationBaseRef.current = consultQuery.trim();
+    recognition.onresult = (event) => {
+      let transcript = "";
+      for (let i = 0; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+      }
+      const combined = [dictationBaseRef.current, transcript.trim()].filter(Boolean).join(" ");
+      setConsultQuery(combined.slice(0, 500));
+    };
+    recognition.onerror = () => setIsDictating(false);
+    recognition.onend = () => setIsDictating(false);
+    recognitionRef.current = recognition;
+    setIsDictating(true);
+    recognition.start();
+  };
+
+  const startConsultation = (prompt) => {
+    recognitionRef.current?.stop();
+    const text = (prompt || "").trim();
+    window.location.href = text
+      ? `/consult?prompt=${encodeURIComponent(text.slice(0, 500))}`
+      : "/consult";
+  };
 
   const visibleProducts = useMemo(
     () => products.filter((product) => filter === "All" || product.category === filter),
@@ -94,8 +156,8 @@ export default function Home() {
               </a>
             </div>
           </div>
+          <a href="#manuals" onClick={() => setMenuOpen(false)}>Product manuals</a>
           <a href="#finder" onClick={() => setMenuOpen(false)}>Find your routine</a>
-          <a href="#results" onClick={() => setMenuOpen(false)}>Our science</a>
           <a href="/consult" onClick={() => setMenuOpen(false)}>Consultation</a>
           <a className="mobile-nav-cta" href="#products" onClick={() => setMenuOpen(false)}>Explore products <ArrowIcon /></a>
         </nav>
@@ -119,16 +181,62 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-content">
           <div className="hero-kicker"><SparkIcon /> BRAZILIAN PROFESSIONAL HAIRCARE</div>
-          <h1>Professional care.<br /><em>Remarkable hair.</em></h1>
-          <p>Targeted formulas for smoother, stronger and more luminous hair—created for professionals, made clear for everyone.</p>
+          <h1 className="visually-hidden">Prohall Professional — hair consultation and product manuals</h1>
+          <p>Ask our consultant anything — or open your product’s step-by-step manual.</p>
+          <form
+            className="hero-consult"
+            onSubmit={(event) => {
+              event.preventDefault();
+              startConsultation(consultQuery);
+            }}
+          >
+            <div className="hero-consult-head">
+              <span><i /> Free hair consultation</span>
+              <small>Answers in seconds</small>
+            </div>
+            <div className="hero-consult-field">
+              <input
+                type="text"
+                value={consultQuery}
+                maxLength={500}
+                placeholder="Ask anything…"
+                aria-label="Describe your hair concern"
+                onChange={(event) => setConsultQuery(event.target.value)}
+              />
+              {dictationSupported && (
+                <button
+                  type="button"
+                  className={`hero-consult-mic ${isDictating ? "listening" : ""}`}
+                  onClick={toggleDictation}
+                  aria-label={isDictating ? "Stop dictation" : "Dictate your hair concern"}
+                  aria-pressed={isDictating}
+                  title={isDictating ? "Stop dictation" : "Dictate"}
+                >
+                  {isDictating ? <StopIcon /> : <MicIcon />}
+                </button>
+              )}
+              <button type="submit" className="button primary">Get my answer <ArrowIcon /></button>
+            </div>
+            <div className="hero-consult-topics" aria-label="Common hair concerns">
+              {["Frizz & volume", "Colored hair", "Heat damage", "Dry & brittle"].map((topic) => (
+                <button
+                  key={topic}
+                  type="button"
+                  onClick={() => startConsultation(`My main concern is ${topic.toLowerCase()}. Which Prohall routine do you recommend?`)}
+                >
+                  {topic}
+                </button>
+              ))}
+            </div>
+          </form>
           <div className="hero-actions">
-            <a className="button primary" href="#products">Explore products <ArrowIcon /></a>
-            <a className="button secondary" href="#finder">Find your routine</a>
+            <a className="button secondary" href="#manuals">Product manuals <ArrowIcon /></a>
+            <a className="button secondary" href="#products">Explore products</a>
           </div>
           <div className="hero-trust">
-            <span><b>01</b> Pro performance</span>
-            <span><b>02</b> Every texture</span>
-            <span><b>03</b> Expert guidance</span>
+            <a href="#how"><b>01</b> How it works</a>
+            <a href="#manuals"><b>02</b> Video tutorials</a>
+            <a href="#support"><b>03</b> Talk to Dily</a>
           </div>
         </div>
 
@@ -221,6 +329,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="manuals section-shell" id="manuals">
+        <div className="section-heading" data-animate>
+          <div>
+            <p className="overline">STEP-BY-STEP GUIDANCE</p>
+            <h2>Product<br /><em>manuals.</em></h2>
+          </div>
+          <p>Every Prohall product comes with a clear application manual — tools, timings, video tutorial and safety notes included. Pick your product to see exactly how to use it.</p>
+        </div>
+        <div className="manual-directory" data-animate>
+          {products.map((product) => (
+            <a className="manual-link-card" href={`/products/${product.slug}`} key={product.slug}>
+              <span className="manual-link-thumb"><img src={product.cardImage || product.image} alt={product.name} /></span>
+              <span className="manual-link-copy">
+                <b>{product.name}{product.size ? ` · ${product.size}` : ""}</b>
+                <small>{product.type}</small>
+                <span>{product.steps ? `${product.steps.length} steps` : "Full guide"}{product.duration ? ` · ${product.duration}` : ""}</span>
+              </span>
+              <span className="circle-link" aria-hidden="true"><ArrowIcon /></span>
+            </a>
+          ))}
+        </div>
+        <div className="manual-directory-help" data-animate>
+          <p>Not sure which product or step applies to your hair?</p>
+          <a className="button navy" href="/consult">Ask the consultant <ArrowIcon /></a>
+        </div>
+      </section>
+
       <section className="routine section-shell" id="finder">
         <div className="routine-intro" data-animate>
           <p className="overline">START WITH YOUR HAIR</p>
@@ -261,7 +396,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="how-it-works section-shell">
+      <section className="how-it-works section-shell" id="how">
         <div className="section-heading compact" data-animate>
           <div><p className="overline">A BETTER ROUTINE</p><h2>Simple steps.<br /><em>Professional care.</em></h2></div>
         </div>

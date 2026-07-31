@@ -27,6 +27,8 @@ function Icon({ name }) {
     chat: <><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12Z" /><path d="M8.5 11h7M8.5 14h4" /></>,
     quiz: <><path d="m4 6 1.5 1.5L8 5" /><path d="M11 6h9" /><path d="m4 12 1.5 1.5L8 11" /><path d="M11 12h9" /><path d="m4 18 1.5 1.5L8 17" /><path d="M11 18h9" /></>,
     camera: <><path d="M4 7h3.2L9 4.8h6L16.8 7H20a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" /><circle cx="12" cy="13" r="3.5" /></>,
+    mic: <><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0" /><path d="M12 18v3" /></>,
+    stop: <rect x="7" y="7" width="10" height="10" rx="2" />,
     upload: <><path d="M12 16V5" /><path d="m7.5 9.5 4.5-4.5 4.5 4.5" /><path d="M5 14v5h14v-5" /></>,
     arrow: <><path d="M4 12h15" /><path d="m14 7 5 5-5 5" /></>,
     back: <><path d="M20 12H5" /><path d="m10 7-5 5 5 5" /></>,
@@ -126,7 +128,53 @@ export default function ConsultationClient() {
   const feedRef = useRef(null);
   const abortRef = useRef(null);
   const pendingAttemptedRef = useRef(false);
+  const recognitionRef = useRef(null);
+  const dictationBaseRef = useRef("");
+  const [isDictating, setIsDictating] = useState(false);
+  const [dictationSupported, setDictationSupported] = useState(false);
   const configured = isConsultApiConfigured();
+
+  useEffect(() => {
+    setDictationSupported(Boolean(window.SpeechRecognition || window.webkitSpeechRecognition));
+    return () => recognitionRef.current?.stop();
+  }, []);
+
+  useEffect(() => {
+    if (isWaiting) recognitionRef.current?.stop();
+  }, [isWaiting]);
+
+  const toggleDictation = () => {
+    if (isDictating) {
+      recognitionRef.current?.stop();
+      return;
+    }
+    const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognitionImpl) return;
+    const recognition = new SpeechRecognitionImpl();
+    recognition.lang = navigator.language || "en-US";
+    recognition.interimResults = true;
+    recognition.continuous = true;
+    dictationBaseRef.current = chatText.trim();
+    recognition.onresult = (event) => {
+      let transcript = "";
+      for (let i = 0; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+      }
+      const combined = [dictationBaseRef.current, transcript.trim()].filter(Boolean).join(" ");
+      setChatText(combined.slice(0, 4000));
+    };
+    recognition.onerror = (event) => {
+      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+        setChatError("Microphone access was blocked. Allow the microphone in your browser to dictate.");
+      }
+      setIsDictating(false);
+    };
+    recognition.onend = () => setIsDictating(false);
+    recognitionRef.current = recognition;
+    setChatError("");
+    setIsDictating(true);
+    recognition.start();
+  };
 
   const quizComplete = quizStep >= quizQuestions.length;
   const quizPrompt = useMemo(() => getQuizPrompt(quizAnswers), [quizAnswers]);
@@ -537,6 +585,19 @@ export default function ConsultationClient() {
                       disabled={isWaiting || retryAfter > 0 || !configured}
                     />
                     <button type="button" onClick={() => setMode("photo")} aria-label="Add a photo" disabled={isWaiting}><Icon name="camera" /></button>
+                    {dictationSupported && (
+                      <button
+                        type="button"
+                        className={`dictate ${isDictating ? "listening" : ""}`}
+                        onClick={toggleDictation}
+                        aria-label={isDictating ? "Stop dictation" : "Dictate"}
+                        aria-pressed={isDictating}
+                        title={isDictating ? "Stop dictation" : "Dictate"}
+                        disabled={isWaiting || retryAfter > 0 || !configured}
+                      >
+                        <Icon name={isDictating ? "stop" : "mic"} />
+                      </button>
+                    )}
                     <button className="send" type="submit" disabled={!chatText.trim() || isWaiting || retryAfter > 0 || !configured} aria-label="Send message"><Icon name="arrow" /></button>
                   </form>
                   {retryAfter > 0 && <div className="consult-rate-limit">Please wait {retryAfter} seconds before sending again.</div>}
