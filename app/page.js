@@ -259,11 +259,6 @@ export default function Home() {
             <a className="button secondary" href="#manuals">Product manuals <ArrowIcon /></a>
             <a className="button secondary" href="#products">Explore products</a>
           </div>
-          <div className="hero-trust">
-            <a href="#how"><b>01</b> How it works</a>
-            <a href="#manuals"><b>02</b> Video tutorials</a>
-            <a href="#support"><b>03</b> Talk to Dily</a>
-          </div>
         </div>
 
         <div className="hero-media">
@@ -302,7 +297,7 @@ export default function Home() {
           {visibleProducts.map((product, index) => (
             <article
               className={`product-card product-${product.slug} tone-${product.tone}`}
-              key={product.name}
+              key={product.slug}
               style={{ "--delay": `${index * 65}ms` }}
             >
               <div className="product-media">
