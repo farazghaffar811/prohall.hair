@@ -179,7 +179,7 @@ export const products = [
     name: "Toning Masks",
     type: "Color-correcting masks",
     note: "4 custom tones",
-    image: "/images/toning-mask.webp",
+    image: "/images/toning-masks-pro-color.png",
     tone: "lilac",
     category: "Masks",
     youtubeId: "zaSED158udE",
