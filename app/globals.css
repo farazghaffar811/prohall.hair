@@ -2103,6 +2103,39 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .home-page .faq-item > span b { font-size: 14px; }
 }
 
+/* Mobile: bring products higher up the page */
+@media (max-width: 640px) {
+  .hero { padding-bottom: 14px; }
+  .hero-content { min-height: 0; padding: 30px 18px 24px; }
+  .hero-content > p { margin: 14px 0 18px; }
+  .hero-consult { margin-bottom: 12px; }
+  .hero-consult-topics { margin-top: 10px; }
+  .hero-actions { flex-direction: row; gap: 8px; }
+  .hero-actions .button { width: auto; flex: 1; min-height: 46px; padding: 0 10px; }
+  .hero-trust {
+    margin-top: 22px;
+    padding-top: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .hero-trust a { display: flex; flex-direction: column; gap: 5px; font-size: 10.5px !important; line-height: 1.3; }
+  .hero-trust b { margin: 0; }
+  .hero-media { min-height: 300px; max-height: 320px; }
+  .stylist-caption { min-height: 0; padding: 12px 14px; }
+  .stylist-caption p { display: none; }
+  .stylist-caption strong { margin: 4px 0 2px; font-size: 19px; }
+  .hero-badge { width: 74px; height: 74px; }
+  .hero-badge strong { font-size: 17px; }
+  .hero-badge span { font-size: 7px; }
+  .quick-paths { grid-template-columns: 1fr 1fr; }
+  .quick-paths a { min-height: 64px; padding: 12px 14px; gap: 8px; border-bottom: 1px solid var(--line); }
+  .quick-paths a:nth-child(odd) { border-right: 1px solid var(--line); }
+  .quick-paths a:nth-child(n+3) { border-bottom: 0; }
+  .quick-paths b { font-size: 13px; }
+  .quick-paths svg { display: none; }
+  .catalog.section-shell { padding-top: 54px; }
+}
+
 @media (max-width: 640px) {
   .product-viewer.product-select-one { min-height: 470px; }
   .product-viewer.product-select-one .product-gallery { min-height: 330px; }
