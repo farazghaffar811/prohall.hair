@@ -2217,6 +2217,15 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 /* Keep the zoom-stage grid row equal to the stage itself so tall images cannot overflow it */
 .product-zoom-stage { grid-template-rows: 100%; }
 
+/* Force Hair set is a transparent PNG: render unblended so it looks identical on card and product page */
+.product-card.product-force-hair .product-visual img,
+.product-viewer.product-force-hair .product-zoom-stage img,
+.product-lightbox.product-force-hair .lightbox-image img,
+.manual-title-product img[src*="force-hair"],
+.manual-link-thumb img[src*="force-hair"] {
+  mix-blend-mode: normal;
+}
+
 /* Hair Ampoules Kit box is a transparent PNG: render unblended so the white box keeps its true color */
 .product-card.product-hair-ampoules-kit .product-visual img,
 .product-viewer.product-hair-ampoules-kit .product-zoom-stage img,
