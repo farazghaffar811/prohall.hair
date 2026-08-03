@@ -87,12 +87,13 @@ export default async function ProductManualPage({ params }) {
           <p>Play the complete product tutorial, then follow the illustrated steps directly below at your own pace.</p>
         </div>
         <div className="manual-tutorial-player">
-          {product.youtubeId ? (
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0`}
-              title={`${product.name} usage video`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+          {product.videoUrl ? (
+            <video
+              src={product.videoUrl}
+              controls
+              playsInline
+              preload="metadata"
+              aria-label={`${product.name} usage video`}
             />
           ) : (
             <div className="manual-video-pending">

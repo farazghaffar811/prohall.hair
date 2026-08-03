@@ -2256,3 +2256,13 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 /* Remove decorative circle behind product-page images */
 .product-gallery::before,
 .manual-hero-product::after { display: none; }
+
+/* Self-hosted tutorial video player (same frame as the old embed) */
+.manual-tutorial-player video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  object-fit: contain;
+  background: #14120d;
+}
