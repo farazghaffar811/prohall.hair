@@ -2198,3 +2198,21 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 /* Tone down the bright white spotlight behind Select One 10.1oz so the section tone shows like other products */
 .product-viewer.product-select-one .product-zoom-stage { background: rgba(255, 255, 255, 0.24); }
 .product-lightbox.product-select-one .lightbox-image { background: var(--off-white); }
+
+/* Manual directory thumbs: fixed pixel height so tall product shots are never clipped */
+.manual-link-thumb img { width: 100%; height: 62px; object-fit: contain; }
+@media (max-width: 640px) {
+  .manual-link-thumb img { height: 48px; }
+}
+/* Product-page viewer: image always fully inside the stage */
+@media (min-width: 641px) {
+  .manual-hero-product.product-viewer .product-zoom-stage img,
+  .product-viewer.product-select-one .product-gallery.single .product-zoom-stage img {
+    width: min(76%, 360px);
+    height: min(85%, 350px);
+    object-fit: contain;
+  }
+}
+
+/* Keep the zoom-stage grid row equal to the stage itself so tall images cannot overflow it */
+.product-zoom-stage { grid-template-rows: 100%; }
