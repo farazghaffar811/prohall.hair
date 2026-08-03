@@ -2171,3 +2171,18 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 @media (max-width: 640px) {
   section.stylist-mobile { height: 360px; }
 }
+
+/* Uniform product-page image viewer: same height for every product */
+@media (min-width: 641px) {
+  .manual-hero { min-height: 0; }
+  .manual-hero-product.product-viewer { min-height: 500px; max-height: 560px; }
+  .product-viewer .product-zoom-stage img { width: min(70%, 340px); height: min(88%, 390px); }
+  .product-viewer.product-select-one { min-height: 500px; }
+  .product-viewer.product-select-one .product-gallery { min-height: 400px; }
+  .product-viewer.product-select-one .product-zoom-stage { min-height: 400px; }
+  .product-viewer.product-select-one .product-gallery.single .product-zoom-stage img {
+    width: auto;
+    height: min(400px, 52vh);
+    max-height: 400px;
+  }
+}
