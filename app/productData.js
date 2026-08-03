@@ -120,7 +120,7 @@ export const products = [
     name: "Hair Ampoules Kit",
     type: "Hair schedule system",
     note: "Weekly ritual",
-    image: "/images/hair-ampoules-kit.png",
+    image: "/images/hair-ampoules-kit-v2.png",
     tone: "mint",
     category: "Repair",
     description: "A weekly ampoule system designed to rotate targeted hydration, nutrition and reconstruction care.",

@@ -2217,6 +2217,15 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 /* Keep the zoom-stage grid row equal to the stage itself so tall images cannot overflow it */
 .product-zoom-stage { grid-template-rows: 100%; }
 
+/* Hair Ampoules Kit box is a transparent PNG: render unblended so the white box keeps its true color */
+.product-card.product-hair-ampoules-kit .product-visual img,
+.product-viewer.product-hair-ampoules-kit .product-zoom-stage img,
+.product-lightbox.product-hair-ampoules-kit .lightbox-image img,
+.manual-title-product img[src*="hair-ampoules"],
+.manual-link-thumb img[src*="hair-ampoules"] {
+  mix-blend-mode: normal;
+}
+
 /* Pro R vial is a transparent PNG: render unblended so the white bottle looks the same on card and page */
 .product-card.product-pro-r-shot .product-visual img,
 .product-viewer.product-pro-r-shot .product-zoom-stage img,
