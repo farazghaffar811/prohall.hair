@@ -2186,3 +2186,15 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
     max-height: 400px;
   }
 }
+
+/* Select One bottles are transparent PNGs: render them without multiply so the white bottle keeps its true color */
+.product-card.product-select-one-travel .product-visual img,
+.product-viewer.product-select-one-travel .product-zoom-stage img,
+.product-lightbox.product-select-one-travel .lightbox-image img,
+.manual-title-product img[src*="select-one"],
+.manual-link-thumb img[src*="select-one"] {
+  mix-blend-mode: normal;
+}
+/* Tone down the bright white spotlight behind Select One 10.1oz so the section tone shows like other products */
+.product-viewer.product-select-one .product-zoom-stage { background: rgba(255, 255, 255, 0.24); }
+.product-lightbox.product-select-one .lightbox-image { background: var(--off-white); }
