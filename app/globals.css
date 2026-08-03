@@ -2252,3 +2252,7 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .manual-link-thumb img[src*="pro-r"] {
   mix-blend-mode: normal;
 }
+
+/* Remove decorative circle behind product-page images */
+.product-gallery::before,
+.manual-hero-product::after { display: none; }
