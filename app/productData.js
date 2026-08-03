@@ -83,6 +83,7 @@ export const products = [
     image: "/images/equalize-pack.webp",
     tone: "mist",
     category: "Masks",
+    videoUrl: "https://res.cloudinary.com/dwnt025iw/video/upload/v1785777211/EQUALIZE_MASK_-_Tatiani_xtavg9.mp4",
     description: "A pH-balancing conditioning mask created for porous, processed and post-chemical-treatment hair.",
     duration: "5–10 minutes",
     tools: ["Shampoo", "Towel", "Wide-tooth comb"],
