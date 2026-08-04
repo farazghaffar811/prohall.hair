@@ -106,10 +106,10 @@ export const products = [
     duration: "About 5 minutes",
     tools: ["Small non-metal bowl", "Water", "Application brush"],
     steps: [
-      ["Prepare the hair", "Shampoo, rinse and remove excess water with a towel."],
-      ["Activate the ampoule", "Pour the ampoule into a non-metal bowl, add an equal amount of water and mix until creamy."],
-      ["Apply evenly", "Work the mixture through the mid-lengths and ends, concentrating on damaged areas."],
-      ["Process and rinse", "Leave for 5 minutes, rinse thoroughly and finish as desired."]
+      ["Mix the ampoule", "In a non-metallic container, mix the contents of the ampoule with water, forming a homogeneous emulsion."],
+      ["Apply to damp hair", "Apply to clean, damp hair, distributing evenly and coating each strand."],
+      ["Let it work", "Leave it on for 5 to 10 minutes."],
+      ["Rinse and style", "Rinse thoroughly and style as desired."]
     ],
     caution: "For external use only. Avoid the scalp and eyes, and follow the ampoule packaging."
   },
@@ -200,7 +200,7 @@ const stepImageExtensions = {
   "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "force-hair": ["jpg", "jpg", "jpg"],
   "equalize": ["jpg", "jpg", "jpg", "jpg"],
-  "pro-r-shot": ["png", "png", "png", "png"],
+  "pro-r-shot": ["jpg", "jpg", "jpg", "jpg"],
   "hair-ampoules-kit": ["png", "png", "png", "png"],
   "absolut-one": ["jpg", "png", "png", "jpg"],
   "absolut-oil": ["png", "png", "png", "png"],
