@@ -2325,3 +2325,16 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .video-carousel { padding: 10px 8px 8px; }
   .video-carousel-tabs button { font-size: 10px; padding: 8px 11px; }
 }
+
+/* Grouped manual steps (e.g. wet hair / dry hair application methods) */
+.step-group-heading {
+  margin: 40px 0 0;
+  padding: 18px 0 6px;
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.step-group:first-child .step-group-heading { margin-top: 0; padding-top: 8px; }
+@media (max-width: 640px) {
+  .step-group-heading { margin-top: 28px; font-size: 24px; }
+}

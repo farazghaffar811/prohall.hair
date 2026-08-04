@@ -147,13 +147,17 @@ export const products = [
     description: "A lightweight finishing spray that helps prepare and protect hair before blow-drying or heat styling.",
     duration: "Leave-in",
     tools: ["Wide-tooth comb", "Blow dryer or styling tool"],
+    stepGroups: [
+      { heading: "Wet hair", size: 3 },
+      { heading: "Dry hair", size: 3 }
+    ],
     steps: [
-      ["Wet hair — spray all over", "Spray the Absolut One Spray Mask all over your hair from a distance of 20 cm."],
-      ["Wet hair — detangle", "Using a comb, detangle your hair and enhance the straightening effect."],
-      ["Wet hair — style", "Style as desired!"],
-      ["Dry hair — spray into your palms", "Spray the Absolut One Spray Mask into the palms of your hands."],
-      ["Dry hair — spread through the hair", "Using gentle movements, spread the product throughout the hair, from the mid-lengths to the ends."],
-      ["Dry hair — style", "Style as desired."]
+      ["Spray all over", "Spray the Absolut One Spray Mask all over your hair from a distance of 20 cm."],
+      ["Detangle", "Using a comb, detangle your hair and enhance the straightening effect."],
+      ["Style", "Style as desired!"],
+      ["Spray into your palms", "Spray the Absolut One Spray Mask into the palms of your hands."],
+      ["Spread through the hair", "Using gentle movements, spread the product throughout the hair, from the mid-lengths to the ends."],
+      ["Style", "Style as desired."]
     ],
     caution: "Avoid spraying toward the face, eyes or directly onto the scalp."
   },

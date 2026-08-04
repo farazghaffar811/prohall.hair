@@ -114,18 +114,30 @@ export default async function ProductManualPage({ params }) {
           <p>Work through each step in order. Keep the product label nearby and follow any instructions printed on your specific packaging.</p>
         </div>
         <div className="step-manual-list">
-          {product.steps.map(([title, instruction], index) => (
-            <article className="manual-step" key={title}>
-              <div className={`manual-step-visual tone-${product.tone}`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <img src={getStepImage(product, index)} alt={`${product.name}: ${title}`} loading="lazy" />
-              </div>
-              <div className="manual-step-copy">
-                <span>Step {String(index + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{instruction}</p>
-              </div>
-            </article>
+          {(product.stepGroups
+            ? product.stepGroups.reduce((groups, group) => {
+                const start = groups.reduce((sum, g) => sum + g.steps.length, 0);
+                groups.push({ heading: group.heading, start, steps: product.steps.slice(start, start + group.size) });
+                return groups;
+              }, [])
+            : [{ heading: null, start: 0, steps: product.steps }]
+          ).map((group) => (
+            <div className="step-group" key={group.heading || "steps"}>
+              {group.heading && <h3 className="step-group-heading">{group.heading}</h3>}
+              {group.steps.map(([title, instruction], index) => (
+                <article className="manual-step" key={`${group.heading || "steps"}-${index}`}>
+                  <div className={`manual-step-visual tone-${product.tone}`}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <img src={getStepImage(product, group.start + index)} alt={`${product.name}: ${title}`} loading="lazy" />
+                  </div>
+                  <div className="manual-step-copy">
+                    <span>Step {String(index + 1).padStart(2, "0")}</span>
+                    <h3>{title}</h3>
+                    <p>{instruction}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           ))}
         </div>
       </section>
