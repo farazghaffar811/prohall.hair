@@ -121,6 +121,7 @@ export const products = [
     image: "/images/hair-ampoules-kit-v2.png",
     tone: "mint",
     category: "Repair",
+    videoUrl: "/media/hair-ampoules-kit/tutorial.mp4",
     description: "A weekly ampoule system designed to rotate targeted hydration, nutrition and reconstruction care.",
     duration: "One treatment per wash day",
     tools: ["Small non-metal bowl", "Water", "Application brush"],
