@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProduct, getStepImage, products } from "../../productData";
 import { productFaqs } from "../../productFaqs";
 import ProductImageViewer from "../../components/ProductImageViewer";
+import VideoCarousel from "../../components/VideoCarousel";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -87,7 +88,9 @@ export default async function ProductManualPage({ params }) {
           <p>Play the complete product tutorial, then follow the illustrated steps directly below at your own pace.</p>
         </div>
         <div className="manual-tutorial-player">
-          {product.videoUrl ? (
+          {product.videos ? (
+            <VideoCarousel videos={product.videos} productName={product.name} />
+          ) : product.videoUrl ? (
             <video
               src={product.videoUrl}
               controls

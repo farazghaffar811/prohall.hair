@@ -2266,3 +2266,62 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   object-fit: contain;
   background: #14120d;
 }
+
+/* Tutorial video carousel (multi-shade products) */
+.video-carousel { padding: 14px 14px 12px; }
+.video-carousel-tabs {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.video-carousel-tabs button {
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.video-carousel-tabs button:hover { border-color: var(--white); }
+.video-carousel-tabs button.active { border-color: var(--white); background: var(--white); color: var(--navy); }
+.video-carousel video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #14120d;
+}
+.video-carousel-nav {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.video-carousel-nav span { color: rgba(255, 255, 255, 0.85); font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+.video-carousel-nav button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.video-carousel-nav button:hover { border-color: var(--white); background: var(--white); color: var(--navy); }
+@media (max-width: 640px) {
+  .video-carousel { padding: 10px 8px 8px; }
+  .video-carousel-tabs button { font-size: 10px; padding: 8px 11px; }
+}

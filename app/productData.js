@@ -185,6 +185,12 @@ export const products = [
     image: "/images/toning-masks-v4.png",
     tone: "lilac",
     category: "Masks",
+    videos: [
+      { label: "Silver Gloss", url: "/media/toning-masks/silver-gloss.mp4" },
+      { label: "Blond Gloss", url: "/media/toning-masks/blond-gloss.mp4" },
+      { label: "Brown Gloss", url: "/media/toning-masks/brown-gloss.mp4" },
+      { label: "Black Gloss", url: "/media/toning-masks/black-gloss.mp4" }
+    ],
     description: "Color-depositing conditioning masks that help refresh tone while leaving hair soft and polished.",
     duration: "Follow the shade label",
     tools: ["Gloves", "Towel", "Wide-tooth comb"],
