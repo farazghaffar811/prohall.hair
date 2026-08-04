@@ -206,7 +206,7 @@ const stepImageExtensions = {
   "hair-ampoules-kit": ["jpg", "jpg", "jpg", "jpg"],
   "absolut-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "absolut-oil": ["jpg", "jpg", "jpg", "jpg"],
-  "toning-masks": ["png", "png", "png", "png"]
+  "toning-masks": ["jpg", "jpg", "jpg", "jpg"]
 };
 
 export function getStepImage(product, index) {
