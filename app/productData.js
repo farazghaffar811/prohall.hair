@@ -103,6 +103,7 @@ export const products = [
     image: "/images/pro-r.png",
     tone: "blue",
     category: "Repair",
+    videoUrl: "/media/pro-r-shot/tutorial.mp4",
     description: "A concentrated reconstruction ampoule for a fast, targeted boost during a repair routine.",
     duration: "About 5 minutes",
     tools: ["Small non-metal bowl", "Water", "Application brush"],
