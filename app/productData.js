@@ -142,6 +142,7 @@ export const products = [
     image: "/images/absolut-one-spray-v2.png",
     tone: "mist",
     category: "Finishing",
+    videoUrl: "/media/absolut-one/tutorial.mp4",
     description: "A lightweight finishing spray that helps prepare and protect hair before blow-drying or heat styling.",
     duration: "Leave-in",
     tools: ["Wide-tooth comb", "Blow dryer or styling tool"],
