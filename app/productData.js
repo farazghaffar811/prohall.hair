@@ -68,10 +68,9 @@ export const products = [
     duration: "Add 10–15 minutes to wash day",
     tools: ["Towel", "Wide-tooth comb"],
     steps: [
-      ["Cleanse", "Wet hair thoroughly, apply the Force Hair shampoo and massage gently through the scalp and lengths. Rinse."],
-      ["Treat", "Remove excess water and distribute the treatment mask through the mid-lengths and ends."],
-      ["Process", "Allow the mask to work for the time printed on the product label, then rinse thoroughly."],
-      ["Condition and finish", "Apply the conditioner through the lengths, rinse, then style as desired."]
+      ["Wash with the Fortifying Shampoo", "Wash your hair with Force Hair Fortifying Shampoo, massaging your scalp until it lathers. Rinse thoroughly."],
+      ["Apply the Fortifying Mask", "Apply the Force Hair Fortifying Mask to damp hair, distributing it well along the length. Leave it on for 5 to 10 minutes and rinse."],
+      ["Finish with the Fortifying Tonic", "Apply Force Hair Fortifying Tonic directly to a clean, dry scalp. Gently massage in and do not rinse."]
     ],
     caution: "Avoid eye contact and discontinue use if irritation occurs. Follow the timing printed on your packaging."
   },
@@ -199,7 +198,7 @@ export function getProduct(slug) {
 const stepImageExtensions = {
   "select-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
-  "force-hair": ["png", "png", "png", "webp"],
+  "force-hair": ["jpg", "jpg", "jpg"],
   "equalize": ["png", "png", "png", "png"],
   "pro-r-shot": ["png", "png", "png", "png"],
   "hair-ampoules-kit": ["png", "png", "png", "png"],
