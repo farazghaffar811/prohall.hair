@@ -199,7 +199,7 @@ const stepImageExtensions = {
   "select-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "force-hair": ["jpg", "jpg", "jpg"],
-  "equalize": ["png", "png", "png", "png"],
+  "equalize": ["jpg", "jpg", "jpg", "jpg"],
   "pro-r-shot": ["png", "png", "png", "png"],
   "hair-ampoules-kit": ["png", "png", "png", "png"],
   "absolut-one": ["jpg", "png", "png", "jpg"],
