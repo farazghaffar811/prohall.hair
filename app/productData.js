@@ -1,12 +1,12 @@
 const selectOneSteps = [
-  ["Shampoo your hair", "Wash thoroughly with your regular shampoo 2–3 times to remove residue and impurities. Rinse completely so the hair is clean and ready for treatment."],
-  ["Blow-dry to 80%", "Blow-dry until the hair is about 80% dry. Leave a little moisture so the Select One cream can penetrate and coat the strands effectively."],
-  ["Section and apply Select One", "Use clips to divide the hair into 4–6 sections. Apply Select One evenly from root to tip, then use a fine-tooth comb to distribute it through every strand. Keep the product about 1 cm away from the scalp and never apply it directly to the scalp."],
-  ["Let it process", "Allow the treatment to process for 60–90 minutes. Curly hair may need 90 minutes for deeper penetration; thinner hair may need only 45–60 minutes. Processing time can influence how straight the finished hair becomes."],
-  ["Rinse thoroughly", "Rinse thoroughly with water until every trace of the product has been removed. No residue should remain before the finishing steps."],
-  ["Blow-dry again", "Blow-dry the hair completely. Use a downward stretching technique to help create a sleek, smooth finish."],
-  ["Seal with the flat iron", "Work in very thin sections. For normal hair, pass the flat iron over each strand 15–20 times at 450°F. For bleached, blonde, very fragile or heat-sensitive hair, reduce the temperature to 375°F and use 10–15 passes. Always make sure the hair can tolerate the heat before continuing."],
-  ["Finish with Equalize Mask", "After ironing, you may apply Prohall Equalize Mask to enhance softness, texture and shine. This step is optional but recommended. The treatment may shift hair color by one or two levels; hair may be colored on the same day if desired."]
+  ["Get your hair ready", "Wash your hair 2 or 3 times with shampoo only—no conditioner. This removes residue and opens the hair so the treatment can work. Pro tip: finish with filtered water, because minerals in tap water can interfere with treatment bonding."],
+  ["Partial dry—50%", "Section the hair and blow-dry until it is approximately 50% dry. It should remain slightly damp."],
+  ["Apply the treatment", "Pour a small amount into a plastic bowl—never use metal. Divide the hair into four equal sections and clip three of them up. Using a tinting brush, work through one section at a time, starting 1 cm away from the scalp and roots. Comb through to distribute evenly, coating every strand from mid-length to ends."],
+  ["Let the magic happen", "Cover the hair with a shower cap and leave the treatment on for 60–90 minutes. Thicker or curlier hair needs the full 90 minutes for the best results."],
+  ["Rinse thoroughly and completely", "Rinse very well with cool water and good pressure. Make sure all residue is removed and the hair is completely clean."],
+  ["Dry everything completely", "Dry the hair completely—down to the last drop. For straight hair, stretch it with a brush while blow-drying. Damp areas can affect the final result. Golden tip: if you’re investing in tools, Taiff is the recommended brand."],
+  ["The moment of truth—the sealing", "Work in thin sections and adjust to the desired result. Super-straight hair: fine hair 375–400°F with 10–12 gentle passes; normal hair 450°F with 15–20 passes; thick hair 450–460°F with 20–25 passes. Defined curls without frizz: only 1–2 light passes on medium heat. Natural texture without frizz: skip the flat iron and simply blow-dry."],
+  ["pH balance and final conditioning", "Rinse thoroughly with cool water. Apply Prohall Equalizer Mask from mid-length to ends for pH balancing. Wait 10 minutes, rinse completely, and dry as desired."]
 ];
 
 const selectOnePreparationNote =
@@ -197,8 +197,8 @@ export function getProduct(slug) {
 }
 
 const stepImageExtensions = {
-  "select-one": ["jpeg", "jpeg", "png", "png", "png", "png", "png", "png"],
-  "select-one-travel": ["png", "png", "png", "png", "png", "png", "png", "png"],
+  "select-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
+  "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "force-hair": ["png", "png", "png", "webp"],
   "equalize": ["png", "png", "png", "png"],
   "pro-r-shot": ["png", "png", "png", "png"],
