@@ -125,10 +125,10 @@ export const products = [
     duration: "One treatment per wash day",
     tools: ["Small non-metal bowl", "Water", "Application brush"],
     steps: [
-      ["Choose your ampoule", "Select the treatment that matches the current step in your hair-care schedule."],
-      ["Cleanse", "Shampoo the hair, rinse thoroughly and towel-dry to remove excess water."],
-      ["Mix and apply", "Prepare the selected ampoule according to its label, then distribute through the lengths and ends."],
-      ["Process and rinse", "Leave on for the stated time, rinse completely and continue with your normal finishing routine."]
+      ["Prepare the mixture", "In a non-metallic container, mix equal parts water and the contents of the chosen ampoule until a homogeneous emulsion is formed."],
+      ["Apply to hair", "With clean, damp hair, distribute the mixture strand by strand, coating each strand well."],
+      ["Processing time", "Leave on for 5 minutes."],
+      ["Rinse", "Remove the product completely with water and style as desired."]
     ],
     caution: "Use only one scheduled ampoule at a time unless the packaging specifically directs otherwise."
   },
@@ -201,7 +201,7 @@ const stepImageExtensions = {
   "force-hair": ["jpg", "jpg", "jpg"],
   "equalize": ["jpg", "jpg", "jpg", "jpg"],
   "pro-r-shot": ["jpg", "jpg", "jpg", "jpg"],
-  "hair-ampoules-kit": ["png", "png", "png", "png"],
+  "hair-ampoules-kit": ["jpg", "jpg", "jpg", "jpg"],
   "absolut-one": ["jpg", "png", "png", "jpg"],
   "absolut-oil": ["png", "png", "png", "png"],
   "toning-masks": ["png", "png", "png", "png"]
