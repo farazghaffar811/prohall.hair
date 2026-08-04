@@ -165,10 +165,10 @@ export const products = [
     duration: "Leave-in",
     tools: ["Clean hands"],
     steps: [
-      ["Start small", "Dispense a small amount into the palm of your hand."],
-      ["Warm the oil", "Rub palms together to spread the product into a thin, even layer."],
-      ["Apply to lengths", "Smooth through the mid-lengths and ends, avoiding the scalp."],
-      ["Adjust and finish", "Add only a little more if needed. Use on damp hair before styling or on dry hair for final shine."]
+      ["Cleanse and towel-dry", "Cleanse your hair and remove excess water with a towel."],
+      ["Apply to your palm", "With slightly damp or dry hair, apply a small amount of Absolut Oil Serum to the palm of your hand."],
+      ["Spread through the hair", "Gently spread through your hair, always avoiding the roots. Be careful not to apply too much in one spot—it's important that all areas receive the same amount."],
+      ["Style", "Style as desired."]
     ],
     caution: "Begin with a minimal amount, especially on fine hair, to avoid weighing it down."
   },
@@ -205,7 +205,7 @@ const stepImageExtensions = {
   "pro-r-shot": ["jpg", "jpg", "jpg", "jpg"],
   "hair-ampoules-kit": ["jpg", "jpg", "jpg", "jpg"],
   "absolut-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
-  "absolut-oil": ["png", "png", "png", "png"],
+  "absolut-oil": ["jpg", "jpg", "jpg", "jpg"],
   "toning-masks": ["png", "png", "png", "png"]
 };
 
