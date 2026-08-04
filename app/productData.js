@@ -144,10 +144,12 @@ export const products = [
     duration: "Leave-in",
     tools: ["Wide-tooth comb", "Blow dryer or styling tool"],
     steps: [
-      ["Start with damp hair", "Towel-dry freshly washed hair so it is damp rather than dripping wet."],
-      ["Spray evenly", "Mist through the mid-lengths and ends, keeping the bottle a short distance from the hair."],
-      ["Distribute", "Comb through gently to spread the product evenly."],
-      ["Style", "Do not rinse. Blow-dry and style as desired."]
+      ["Wet hair — spray all over", "Spray the Absolut One Spray Mask all over your hair from a distance of 20 cm."],
+      ["Wet hair — detangle", "Using a comb, detangle your hair and enhance the straightening effect."],
+      ["Wet hair — style", "Style as desired!"],
+      ["Dry hair — spray into your palms", "Spray the Absolut One Spray Mask into the palms of your hands."],
+      ["Dry hair — spread through the hair", "Using gentle movements, spread the product throughout the hair, from the mid-lengths to the ends."],
+      ["Dry hair — style", "Style as desired."]
     ],
     caution: "Avoid spraying toward the face, eyes or directly onto the scalp."
   },
@@ -202,7 +204,7 @@ const stepImageExtensions = {
   "equalize": ["jpg", "jpg", "jpg", "jpg"],
   "pro-r-shot": ["jpg", "jpg", "jpg", "jpg"],
   "hair-ampoules-kit": ["jpg", "jpg", "jpg", "jpg"],
-  "absolut-one": ["jpg", "png", "png", "jpg"],
+  "absolut-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "absolut-oil": ["png", "png", "png", "png"],
   "toning-masks": ["png", "png", "png", "png"]
 };
