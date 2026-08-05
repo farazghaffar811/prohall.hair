@@ -2350,3 +2350,13 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 
 /* Product tile backgrounds: white like prohall.ai (was warm sand/peach tones) */
 .tone-mint, .tone-blue, .tone-sky, .tone-mist, .tone-lilac { background: #ffffff; }
+
+/* Remaining sand/cream backgrounds -> white (colors only, no other UI change) */
+:root {
+  --off-white: #ffffff;
+  --mist: #ffffff;
+}
+.stylist-panel { background: #ffffff; }
+.manual-caution { background: #ffffff; }
+.product-viewer.product-select-one .product-zoom-stage { background: #ffffff; }
+.product-lightbox.product-select-one .lightbox-image { background: #ffffff; }
