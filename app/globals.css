@@ -2347,3 +2347,6 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .product-viewer .product-zoom-stage,
   .product-viewer.product-select-one .product-zoom-stage { min-height: 320px; }
 }
+
+/* Product tile backgrounds: white like prohall.ai (was warm sand/peach tones) */
+.tone-mint, .tone-blue, .tone-sky, .tone-mist, .tone-lilac { background: #ffffff; }
