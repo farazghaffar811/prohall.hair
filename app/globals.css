@@ -2360,3 +2360,18 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .manual-caution { background: #ffffff; }
 .product-viewer.product-select-one .product-zoom-stage { background: #ffffff; }
 .product-lightbox.product-select-one .lightbox-image { background: #ffffff; }
+
+/* Product card hover: black card with white text */
+.product-card { transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease; }
+.product-card:hover { background: var(--navy); border-color: var(--navy); }
+.product-card:hover .product-visual img { mix-blend-mode: normal; }
+.product-card:hover .product-meta span { color: var(--white); }
+.product-card:hover .product-meta span:last-child { color: rgba(255, 255, 255, 0.85); }
+.product-card:hover .product-banner { background: var(--navy); border-top-color: rgba(255, 255, 255, 0.16); box-shadow: none; }
+.product-card:hover .product-copy p { color: rgba(255, 255, 255, 0.75); }
+.product-card:hover .product-copy h3 { color: var(--white); }
+.product-card:hover .product-claim { color: rgba(255, 255, 255, 0.82); }
+.product-card:hover .product-actions { border-top-color: rgba(255, 255, 255, 0.22); }
+.product-card:hover .amazon-link { background: var(--white); color: var(--navy); }
+.product-card:hover .product-guide-link { color: var(--white); }
+.product-card:hover .product-guide-link .circle-link { border-color: var(--white); background: transparent; color: var(--white); }
