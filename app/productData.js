@@ -15,6 +15,17 @@ const selectOnePreparationNote =
 const selectOneCaution =
   "Attention blondes: because blonde or bleached hair is more porous and fragile, Select One may straighten it by up to approximately 70% and may not produce the same straightening level as on other hair types. Perform a patch and strand test first, never apply the product directly to the scalp, and reduce heat for fine, blonde, bleached or fragile hair. Professional assistance is recommended.";
 
+const burixOneSteps = [
+  ["Prepare the hair", "Wash 2–3 times with shampoo only—no conditioner yet. This clears away every trace of residue and opens the cuticle so the treatment can bond properly. Pro tip: finish with a filtered-water rinse. Minerals in tap water can interfere with bonding, and this one small step makes a real difference."],
+  ["Dry to 50%", "Section the hair and blow dry until it's about halfway dry. It should still feel slightly damp to the touch."],
+  ["Apply the treatment", "Pour a small amount into a plastic bowl—never metal. Divide the hair into 4 sections and clip 3 of them out of the way. Using an applicator brush, work one section at a time, staying about ½ inch (1 cm) away from the scalp and roots. Comb through so every strand is evenly coated from mid-length to ends. Start with less—you can always add more as you go."],
+  ["Let it process", "Cover the hair with a shower cap and wait 60–90 minutes. Thick or very curly hair needs the full 90 minutes."],
+  ["Rinse completely", "Rinse with cool water and good pressure until the hair feels completely clean. Don't rush this—any product left behind will show in the final result."],
+  ["Dry 100%", "Dry the hair completely, right down to the ends. For a straighter finish, stretch the hair with a brush as you blow dry. A single damp patch can change your result."],
+  ["Seal with the flat iron", "Work in thin sections and adjust to the look you're after. Fine hair: 375–400°F, 10–12 gentle passes. Normal hair: 450°F, 15–20 passes. Thick hair: 450–460°F, 20–25 passes. Defined curls: 1–2 light passes on medium heat. Natural texture: skip the iron entirely—blow dry only."],
+  ["Balance the pH and finish", "Rinse thoroughly with cool water, then apply Prohall Equalize Mask from mid-length to ends. Leave it for 10 minutes, rinse completely, and style as you like. This final step is what makes your result last."]
+];
+
 const burixOneCaution =
   "Attention blondes: because blonde or bleached hair is more porous and fragile, Burix One may straighten it by up to approximately 70% and may not produce the same straightening level as on other hair types. Perform a patch and strand test first, never apply the product directly to the scalp, and reduce heat for fine, blonde, bleached or fragile hair. Professional assistance is recommended.";
 
@@ -75,7 +86,7 @@ export const products = [
     duration: "Approximately 2–3 hours",
     tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
     preparationNote: selectOnePreparationNote,
-    steps: selectOneSteps,
+    steps: burixOneSteps,
     caution: burixOneCaution
   },
   {
@@ -91,7 +102,7 @@ export const products = [
     duration: "Approximately 2–3 hours",
     tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
     preparationNote: selectOnePreparationNote,
-    steps: selectOneSteps,
+    steps: burixOneSteps,
     caution: burixOneCaution
   },
   {
