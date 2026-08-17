@@ -264,6 +264,8 @@ export function getProduct(slug) {
 const stepImageExtensions = {
   "select-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
+  "burix-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
+  "burix-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "force-hair": ["jpg", "jpg", "jpg"],
   "equalize": ["jpg", "jpg", "jpg", "jpg"],
   "pro-r-shot": ["jpg", "jpg", "jpg", "jpg"],
