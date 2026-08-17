@@ -2375,3 +2375,6 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .product-card:hover .amazon-link { background: var(--white); color: var(--navy); }
 .product-card:hover .product-guide-link { color: var(--white); }
 .product-card:hover .product-guide-link .circle-link { border-color: var(--white); background: transparent; color: var(--white); }
+
+/* Step visual fallback (no step photo yet): show the product bottle contained, not cropped */
+.manual-step-visual img.step-image-fallback { object-fit: contain; padding: 14px; background: #ffffff; }

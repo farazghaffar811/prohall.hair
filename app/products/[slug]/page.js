@@ -128,7 +128,12 @@ export default async function ProductManualPage({ params }) {
                 <article className="manual-step" key={`${group.heading || "steps"}-${index}`}>
                   <div className={`manual-step-visual tone-${product.tone}`}>
                     <span>{String(index + 1).padStart(2, "0")}</span>
-                    <img src={getStepImage(product, group.start + index)} alt={`${product.name}: ${title}`} loading="lazy" />
+                    <img
+                      src={getStepImage(product, group.start + index)}
+                      className={getStepImage(product, group.start + index) === product.image ? "step-image-fallback" : undefined}
+                      alt={`${product.name}: ${title}`}
+                      loading="lazy"
+                    />
                   </div>
                   <div className="manual-step-copy">
                     <span>Step {String(index + 1).padStart(2, "0")}</span>
