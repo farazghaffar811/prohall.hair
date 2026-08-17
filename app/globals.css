@@ -2376,5 +2376,37 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .product-card:hover .product-guide-link { color: var(--white); }
 .product-card:hover .product-guide-link .circle-link { border-color: var(--white); background: transparent; color: var(--white); }
 
+/* Product size variant picker */
+.variant-viewer { display: flex; flex-direction: column; gap: 12px; }
+.variant-picker {
+  padding: 12px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+}
+.variant-picker > span { margin-right: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.variant-picker button {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.variant-picker button:hover { border-color: var(--navy); color: var(--navy); }
+.variant-picker button.active { border-color: var(--navy); background: var(--navy); color: #ffffff; }
+@media (max-width: 640px) {
+  .variant-picker { padding: 10px 12px; }
+  .variant-picker button { font-size: 12.5px; padding: 9px 12px; }
+}
+
 /* Step visual fallback (no step photo yet): show the product bottle contained, not cropped */
 .manual-step-visual img.step-image-fallback { object-fit: contain; padding: 14px; background: #ffffff; }

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProduct, getStepImage, products } from "../../productData";
 import { productFaqs } from "../../productFaqs";
 import ProductImageViewer from "../../components/ProductImageViewer";
+import VariantViewer from "../../components/VariantViewer";
 import VideoCarousel from "../../components/VideoCarousel";
 
 export function generateStaticParams() {
@@ -61,7 +62,11 @@ export default async function ProductManualPage({ params }) {
           </div>
           <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
         </div>
-        <ProductImageViewer product={product} images={[product.image]} />
+        {product.variants ? (
+          <VariantViewer product={product} />
+        ) : (
+          <ProductImageViewer product={product} images={[product.image]} />
+        )}
       </section>
 
       <section className="manual-prep">
