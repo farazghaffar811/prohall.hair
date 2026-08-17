@@ -15,6 +15,9 @@ const selectOnePreparationNote =
 const selectOneCaution =
   "Attention blondes: because blonde or bleached hair is more porous and fragile, Select One may straighten it by up to approximately 70% and may not produce the same straightening level as on other hair types. Perform a patch and strand test first, never apply the product directly to the scalp, and reduce heat for fine, blonde, bleached or fragile hair. Professional assistance is recommended.";
 
+const burixOneCaution =
+  "Attention blondes: because blonde or bleached hair is more porous and fragile, Burix One may straighten it by up to approximately 70% and may not produce the same straightening level as on other hair types. Perform a patch and strand test first, never apply the product directly to the scalp, and reduce heat for fine, blonde, bleached or fragile hair. Professional assistance is recommended.";
+
 export const products = [
   {
     slug: "select-one",
@@ -55,6 +58,41 @@ export const products = [
     preparationNote: selectOnePreparationNote,
     steps: selectOneSteps,
     caution: selectOneCaution
+  },
+  {
+    slug: "burix-one",
+    name: "Burix One",
+    type: "Anti-frizz hair mask",
+    note: "One-step application",
+    size: "10.1 fl oz / 300 ml",
+    image: "/images/burix-one-300.png",
+    tone: "mint",
+    category: "Smoothing",
+    description: "A one-step anti-frizz mask with Brazilian collagen protein that reconstructs, replenishes nutrients and provides intense shine.",
+    benefits: ["Reconstructs and strengthens the hair fiber", "Replenishes lost nutrients", "Helps control frizz", "Provides intense shine"],
+    ingredients: "Lumini System, Buriti Oil, Biotin and Tannic Acid",
+    features: ["Easy application", "One step", "Professional use"],
+    duration: "Approximately 2–3 hours",
+    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
+    preparationNote: selectOnePreparationNote,
+    steps: selectOneSteps,
+    caution: burixOneCaution
+  },
+  {
+    slug: "burix-one-travel",
+    name: "Burix One",
+    type: "Anti-frizz hair mask",
+    note: "One-step application",
+    size: "4.05 fl oz / 120 ml",
+    image: "/images/burix-one-120.png",
+    tone: "blue",
+    category: "Smoothing",
+    description: "The travel-size format of the Burix One anti-frizz mask with Brazilian collagen protein.",
+    duration: "Approximately 2–3 hours",
+    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
+    preparationNote: selectOnePreparationNote,
+    steps: selectOneSteps,
+    caution: burixOneCaution
   },
   {
     slug: "force-hair",
