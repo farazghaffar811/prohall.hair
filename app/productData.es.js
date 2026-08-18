@@ -58,7 +58,7 @@ const translations = {
     caution: selectOneCautionEs
   },
   "burix-one": {
-    videoUrl: "https://res.cloudinary.com/dwnt025iw/video/upload/v1785777211/EQUALIZE_MASK_-_Tatiani_xtavg9.mp4",
+    videoUrl: null,
     type: "Mascarilla capilar antifrizz",
     note: "Aplicación en un solo paso",
     description: "Una mascarilla antifrizz de un solo paso con proteína de colágeno brasileño que reconstruye, repone nutrientes y aporta un brillo intenso.",
