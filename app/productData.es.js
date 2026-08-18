@@ -59,9 +59,9 @@ const translations = {
   },
   "burix-one": {
     videoUrl: null,
-    type: "Mascarilla capilar antifrizz",
-    note: "Aplicación en un solo paso",
-    description: "Una mascarilla antifrizz de un solo paso con proteína de colágeno brasileño que reconstruye, repone nutrientes y aporta un brillo intenso.",
+    type: "Tratamiento de queratina brasileña",
+    note: "Sin formaldehído",
+    description: "Una mascarilla de un solo paso sin formaldehído con proteína de colágeno brasileño que reconstruye, repone nutrientes y aporta un brillo intenso.",
     benefits: ["Reconstruye y fortalece la fibra capilar", "Repone los nutrientes perdidos", "Ayuda a controlar el frizz", "Aporta un brillo intenso"],
     ingredients: "Lumini System, aceite de buriti, biotina y ácido tánico",
     features: ["Fácil aplicación", "Un solo paso", "Uso profesional"],

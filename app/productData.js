@@ -73,8 +73,8 @@ export const products = [
   {
     slug: "burix-one",
     name: "Burix One",
-    type: "Anti-frizz hair mask",
-    note: "One-step application",
+    type: "Brazilian keratin treatment",
+    note: "Formaldehyde-free",
     size: "300 ml / 120 ml",
     image: "/images/burix-one-300.png",
     variants: [
@@ -84,7 +84,7 @@ export const products = [
     tone: "mint",
     category: "Smoothing",
     videoUrl: "https://res.cloudinary.com/dwnt025iw/video/upload/v1787078784/BURIX_-_Duda_kcjdhg.mp4",
-    description: "A one-step anti-frizz mask with Brazilian collagen protein that reconstructs, replenishes nutrients and provides intense shine.",
+    description: "A one-step Formaldehyde-free mask with Brazilian collagen protein that reconstructs, replenishes nutrients and provides intense shine.",
     benefits: ["Reconstructs and strengthens the hair fiber", "Replenishes lost nutrients", "Helps control frizz", "Provides intense shine"],
     ingredients: "Lumini System, Buriti Oil, Biotin and Tannic Acid",
     features: ["Easy application", "One step", "Professional use"],
