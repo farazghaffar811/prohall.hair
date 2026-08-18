@@ -4,7 +4,13 @@ import ConsultTokenCapture from "./components/ConsultTokenCapture";
 
 export const metadata = {
   title: "Prohall Professional — Brazilian Hair Science",
-  description: "Professional hair treatments engineered in Brazil for smoother, stronger, visibly healthier hair."
+  description: "Professional hair treatments engineered in Brazil for smoother, stronger, visibly healthier hair.",
+  alternates: {
+    languages: {
+      en: "/",
+      es: "/es"
+    }
+  }
 };
 
 export default function RootLayout({ children }) {

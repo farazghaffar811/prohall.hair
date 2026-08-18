@@ -3,14 +3,14 @@
 import { useState } from "react";
 import ProductImageViewer from "./ProductImageViewer";
 
-export default function VariantViewer({ product }) {
+export default function VariantViewer({ product, sizeLabel = "Size" }) {
   const [index, setIndex] = useState(0);
   const variant = product.variants[index];
 
   return (
     <div className="variant-viewer">
       <div className="variant-picker" role="group" aria-label={`${product.name} size`}>
-        <span>Size</span>
+        <span>{sizeLabel}</span>
         {product.variants.map((v, i) => (
           <button
             key={v.label}

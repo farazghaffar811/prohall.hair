@@ -1,9 +1,15 @@
 import { notFound } from "next/navigation";
-import { getProduct, getStepImage, products } from "../../productData";
-import { productFaqs } from "../../productFaqs";
-import ProductImageViewer from "../../components/ProductImageViewer";
-import VariantViewer from "../../components/VariantViewer";
-import VideoCarousel from "../../components/VideoCarousel";
+import { getProduct, getStepImage, products } from "../../../productData.es";
+import ProductImageViewer from "../../../components/ProductImageViewer";
+import VariantViewer from "../../../components/VariantViewer";
+import VideoCarousel from "../../../components/VideoCarousel";
+
+const categoryLabels = {
+  Smoothing: "Alisado",
+  Repair: "Reparación",
+  Masks: "Mascarillas",
+  Finishing: "Acabado"
+};
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -14,8 +20,8 @@ export async function generateMetadata({ params }) {
   const product = getProduct(slug);
   if (!product) return {};
   return {
-    title: `${product.name} Usage Manual | Prohall Professional`,
-    description: `Step-by-step usage instructions for ${product.name}.`,
+    title: `Manual de uso de ${product.name} | Prohall Professional`,
+    description: `Instrucciones de uso paso a paso de ${product.name}.`,
     alternates: {
       languages: {
         en: `/products/${slug}`,
@@ -33,44 +39,42 @@ function ArrowIcon() {
   );
 }
 
-export default async function ProductManualPage({ params }) {
+export default async function ProductManualPageEs({ params }) {
   const { slug } = await params;
   const product = getProduct(slug);
 
   if (!product) notFound();
-  const faqs = productFaqs[product.slug] || [];
 
   return (
     <main className="manual-page">
       <header className="manual-header">
-        <a className="logo" href="/" aria-label="Prohall Professional home">
+        <a className="logo" href="/es" aria-label="Inicio de Prohall Professional">
           PROHALL <small>PROFESSIONAL</small>
         </a>
         <div className="manual-header-links">
-          <a className="manual-back lang-switch" href={`/es/products/${product.slug}`} aria-label="Ver en español">ES</a>
-          <a className="manual-back" href="/#manuals">← All manuals</a>
-          <a className="manual-consult-link" href={`/consult?prompt=${encodeURIComponent(`I'm using ${product.name} (${product.type}). I have a question about how to apply it.`)}`}>
-            Ask about this product <ArrowIcon />
+          <a className="manual-back" href="/es#manuals">← Todos los manuales</a>
+          <a className="manual-consult-link" href={`/es/consult?prompt=${encodeURIComponent(`Estoy usando ${product.name} (${product.type}). Tengo una pregunta sobre cómo aplicarlo.`)}`}>
+            Pregunta sobre este producto <ArrowIcon />
           </a>
         </div>
       </header>
 
       <section className="manual-hero">
         <div className="manual-hero-copy">
-          <p className="overline">{product.category} · Product manual</p>
+          <p className="overline">{categoryLabels[product.category] || product.category} · Manual del producto</p>
           <div className="manual-title-lockup">
             <h1>{product.name}</h1>
           </div>
           <p>{product.description}</p>
           <div className="manual-facts">
-            <span><small>Format</small>{product.size || product.note}</span>
-            <span><small>Routine time</small>{product.duration}</span>
-            <span><small>Steps</small>{product.steps.length} guided steps</span>
+            <span><small>Formato</small>{product.size || product.note}</span>
+            <span><small>Tiempo de rutina</small>{product.duration}</span>
+            <span><small>Pasos</small>{product.steps.length} pasos guiados</span>
           </div>
-          <a className="button primary" href="#manual-steps">Start the manual <ArrowIcon /></a>
+          <a className="button primary" href="#manual-steps">Comenzar el manual <ArrowIcon /></a>
         </div>
         {product.variants ? (
-          <VariantViewer product={product} />
+          <VariantViewer product={product} sizeLabel="Tamaño" />
         ) : (
           <ProductImageViewer product={product} images={[product.image]} />
         )}
@@ -78,12 +82,12 @@ export default async function ProductManualPage({ params }) {
 
       <section className="manual-prep">
         <div>
-          <p className="overline">Before you begin</p>
-          <h2>Prepare your setup.</h2>
+          <p className="overline">Antes de empezar</p>
+          <h2>Prepara tu espacio.</h2>
         </div>
         <div className="manual-prep-details">
           {product.preparationNote && (
-            <p className="manual-prep-note"><strong>Hair and heat guidance</strong>{product.preparationNote}</p>
+            <p className="manual-prep-note"><strong>Guía de cabello y calor</strong>{product.preparationNote}</p>
           )}
           <div className="tool-list">
             {product.tools.map((tool, index) => (
@@ -95,9 +99,9 @@ export default async function ProductManualPage({ params }) {
 
       <section className="manual-tutorial">
         <div className="manual-tutorial-copy">
-          <p className="overline">Watch first</p>
-          <h2>See the routine<br />before you begin.</h2>
-          <p>Play the complete product tutorial, then follow the illustrated steps directly below at your own pace.</p>
+          <p className="overline">Míralo primero</p>
+          <h2>Mira la rutina<br />antes de empezar.</h2>
+          <p>Reproduce el tutorial completo del producto y luego sigue los pasos ilustrados a tu ritmo.</p>
         </div>
         <div className="manual-tutorial-player">
           {product.videos ? (
@@ -108,12 +112,12 @@ export default async function ProductManualPage({ params }) {
               controls
               playsInline
               preload="metadata"
-              aria-label={`${product.name} usage video`}
+              aria-label={`Vídeo de uso de ${product.name}`}
             />
           ) : (
             <div className="manual-video-pending">
-              <span>Video coming soon</span>
-              <p>Follow the complete illustrated manual below while we prepare this product’s official tutorial.</p>
+              <span>Vídeo próximamente</span>
+              <p>Sigue el manual ilustrado completo mientras preparamos el tutorial oficial de este producto.</p>
             </div>
           )}
         </div>
@@ -121,9 +125,9 @@ export default async function ProductManualPage({ params }) {
 
       <section className="manual-steps" id="manual-steps">
         <div className="manual-steps-heading">
-          <p className="overline">Step-by-step</p>
-          <h2>Use it with<br /><em>confidence.</em></h2>
-          <p>Work through each step in order. Keep the product label nearby and follow any instructions printed on your specific packaging.</p>
+          <p className="overline">Paso a paso</p>
+          <h2>Úsalo con<br /><em>confianza.</em></h2>
+          <p>Sigue cada paso en orden. Ten la etiqueta del producto a mano y respeta cualquier indicación impresa en tu envase.</p>
         </div>
         <div className="step-manual-list">
           {(product.stepGroups
@@ -148,7 +152,7 @@ export default async function ProductManualPage({ params }) {
                     />
                   </div>
                   <div className="manual-step-copy">
-                    <span>Step {String(index + 1).padStart(2, "0")}</span>
+                    <span>Paso {String(index + 1).padStart(2, "0")}</span>
                     <h3>{title}</h3>
                     <p>{instruction}</p>
                   </div>
@@ -160,58 +164,32 @@ export default async function ProductManualPage({ params }) {
       </section>
 
       <aside className="manual-caution">
-        <span>Important</span>
+        <span>Importante</span>
         <div>
-          <h2>Use with care.</h2>
+          <h2>Úsalo con cuidado.</h2>
           <p>{product.caution}</p>
         </div>
       </aside>
 
-      {faqs.length > 0 && (
-        <section className="manual-faq" id="faqs">
-          <div className="manual-faq-heading">
-            <div>
-              <p className="overline">Product support · {faqs.length} answers</p>
-              <h2>Frequently asked<br /><em>questions.</em></h2>
-            </div>
-            <p>Find detailed answers about application, timing, compatibility, aftercare, storage and expected results for {product.name}.</p>
-          </div>
-          <div className="manual-faq-list">
-            {faqs.map(({ question, answer }, index) => (
-              <details className="manual-faq-item" key={`${index}-${question}`}>
-                <summary>
-                  <span className="manual-faq-number">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="manual-faq-question">{question}</span>
-                  <span className="manual-faq-toggle" aria-hidden="true" />
-                </summary>
-                <div className="manual-faq-answer">
-                  <p>{answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
-
       <section className="manual-finish">
         <div>
-          <p className="overline">You’re all set</p>
-          <h2>Ready for your<br />Prohall routine?</h2>
+          <p className="overline">Todo listo</p>
+          <h2>¿Lista para tu<br />rutina Prohall?</h2>
         </div>
         <div className="manual-finish-actions">
-          <a className="button navy" href={`/consult?prompt=${encodeURIComponent(`I'm using ${product.name} (${product.type}). I have a question about how to apply it.`)}`}>
-            Ask the consultant <ArrowIcon />
+          <a className="button navy" href={`/es/consult?prompt=${encodeURIComponent(`Estoy usando ${product.name} (${product.type}). Tengo una pregunta sobre cómo aplicarlo.`)}`}>
+            Pregunta al consultor <ArrowIcon />
           </a>
           {product.amazonUrl && (
-            <a className="button primary" href={product.amazonUrl} target="_blank" rel="noreferrer">Buy on Amazon <ArrowIcon /></a>
+            <a className="button primary" href={product.amazonUrl} target="_blank" rel="noreferrer">Comprar en Amazon <ArrowIcon /></a>
           )}
-          <a className="button secondary" href="/#manuals">All product manuals</a>
+          <a className="button secondary" href="/es#manuals">Todos los manuales</a>
         </div>
       </section>
 
       <footer className="manual-footer">
-        <a className="logo" href="/">PROHALL <small>PROFESSIONAL</small></a>
-        <p>Professional care. Remarkable hair.</p>
+        <a className="logo" href="/es">PROHALL <small>PROFESSIONAL</small></a>
+        <p>Cuidado profesional. Cabello extraordinario.</p>
       </footer>
     </main>
   );
