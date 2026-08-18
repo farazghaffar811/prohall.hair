@@ -85,6 +85,10 @@ const translations = {
     caution: "Evita el contacto con los ojos y suspende el uso si aparece irritación. Sigue los tiempos impresos en tu envase."
   },
   "equalize": {
+    variants: [
+      { label: "300 g / 10.5 fl oz", image: "/images/equalize-300g.png" },
+      { label: "Sobre de 50 g", image: "/images/equalize-pack.webp" }
+    ],
     type: "Mascarilla equilibrante de pH",
     note: "Reparación + brillo",
     description: "Una mascarilla acondicionadora que equilibra el pH, creada para cabello poroso, procesado y posterior a tratamientos químicos.",

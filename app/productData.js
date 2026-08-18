@@ -118,7 +118,12 @@ export const products = [
     name: "Equalize",
     type: "pH balancing mask",
     note: "Repair + shine",
-    image: "/images/equalize-pack.webp",
+    size: "300 g / 50 g",
+    image: "/images/equalize-300g.png",
+    variants: [
+      { label: "300 g / 10.5 fl oz", image: "/images/equalize-300g.png" },
+      { label: "50 g sachet", image: "/images/equalize-pack.webp" }
+    ],
     tone: "mist",
     category: "Masks",
     videoUrl: "/media/equalize/tutorial.mp4",
