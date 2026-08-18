@@ -83,6 +83,7 @@ export const products = [
     ],
     tone: "mint",
     category: "Smoothing",
+    videoUrl: "https://res.cloudinary.com/dwnt025iw/video/upload/v1787078784/BURIX_-_Duda_kcjdhg.mp4",
     description: "A one-step anti-frizz mask with Brazilian collagen protein that reconstructs, replenishes nutrients and provides intense shine.",
     benefits: ["Reconstructs and strengthens the hair fiber", "Replenishes lost nutrients", "Helps control frizz", "Provides intense shine"],
     ingredients: "Lumini System, Buriti Oil, Biotin and Tannic Acid",
