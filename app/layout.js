@@ -10,6 +10,9 @@ export const metadata = {
       en: "/",
       es: "/es"
     }
+  },
+  other: {
+    google: "notranslate"
   }
 };
 
