@@ -47,16 +47,6 @@ const translations = {
     steps: selectOneStepsEs,
     caution: selectOneCautionEs
   },
-  "select-one-travel": {
-    type: "Tratamiento de queratina brasileña",
-    note: "Sin formaldehído",
-    description: "El formato de viaje del tratamiento alisador profesional Select One.",
-    duration: "Aproximadamente 2–3 horas",
-    tools: keratinToolsEs,
-    preparationNote: selectOnePreparationNoteEs,
-    steps: selectOneStepsEs,
-    caution: selectOneCautionEs
-  },
   "burix-one": {
     videoUrl: null,
     type: "Tratamiento de queratina brasileña",

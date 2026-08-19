@@ -35,9 +35,13 @@ export const products = [
     name: "Select One",
     type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
-    size: "10.1 fl oz / 300 ml",
+    size: "300 ml / 120 ml",
     image: "/images/select-one-300ml-card.webp",
     cardImage: "/images/select-one-300ml-card.webp",
+    variants: [
+      { label: "10.1 fl oz / 300 ml", image: "/images/select-one-300ml-card.webp" },
+      { label: "4.05 fl oz / 120 ml", image: "/images/select-one-travel-v5.png" }
+    ],
     tone: "mint",
     category: "Smoothing",
     amazonUrl: "https://www.amazon.com/dp/B0FMT1XNYT",
@@ -47,23 +51,6 @@ export const products = [
     benefits: ["Smoother, more manageable hair", "Helps reduce frizz and split ends", "Adds softness and luminous shine", "Suitable for all hair types"],
     ingredients: "Collagen, coconut oil, Lumini System and lactic acid",
     features: ["Formaldehyde-free", "Cruelty-free", "Coconut scent"],
-    duration: "Approximately 2–3 hours",
-    tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
-    preparationNote: selectOnePreparationNote,
-    steps: selectOneSteps,
-    caution: selectOneCaution
-  },
-  {
-    slug: "select-one-travel",
-    name: "Select One",
-    type: "Brazilian keratin treatment",
-    note: "Formaldehyde-free",
-    size: "4.05 fl oz / 120 ml",
-    image: "/images/select-one-travel-v5.png",
-    tone: "blue",
-    category: "Smoothing",
-    videoUrl: "https://res.cloudinary.com/dwnt025iw/video/upload/v1785776496/select_one_tomdll.mp4",
-    description: "The travel-size format of the Select One professional smoothing treatment.",
     duration: "Approximately 2–3 hours",
     tools: ["Shampoo", "Gloves", "Fine-tooth comb", "Sectioning clips", "Blow dryer", "Adjustable flat iron", "Equalize Mask (optional)"],
     preparationNote: selectOnePreparationNote,
@@ -257,7 +244,6 @@ export function getProduct(slug) {
 
 const stepImageExtensions = {
   "select-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
-  "select-one-travel": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "burix-one": ["jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg", "jpg"],
   "force-hair": ["jpg", "jpg", "jpg"],
   "equalize": ["jpg", "jpg", "jpg", "jpg"],

@@ -176,8 +176,7 @@ export default function HomeEs() {
               </div>
               <div>
                 <span>Prohall</span>
-                <a href="/es/products/select-one" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One 10.1 oz</a>
-                <a href="/es/products/select-one-travel" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One</a>
+                <a href="/es/products/select-one" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Select One</a>
                 <a href="/es/products/burix-one" onClick={() => { setMenuOpen(false); setCategoriesOpen(false); }}>Burix One</a>
               </div>
               <div>
