@@ -221,7 +221,7 @@ export default function Home() {
               <span><i /> Free hair consultation</span>
               <small>Answers in seconds</small>
             </div>
-            <div className="hero-consult-field">
+            <div className="chat-composer">
               <input
                 type="text"
                 value={consultQuery}
@@ -230,19 +230,21 @@ export default function Home() {
                 aria-label="Describe your hair concern"
                 onChange={(event) => setConsultQuery(event.target.value)}
               />
-              {dictationSupported && (
-                <button
-                  type="button"
-                  className={`hero-consult-mic ${isDictating ? "listening" : ""}`}
-                  onClick={toggleDictation}
-                  aria-label={isDictating ? "Stop dictation" : "Dictate your hair concern"}
-                  aria-pressed={isDictating}
-                  title={isDictating ? "Stop dictation" : "Dictate"}
-                >
-                  {isDictating ? <StopIcon /> : <MicIcon />}
-                </button>
-              )}
-              <button type="submit" className="button primary">Get my answer <ArrowIcon /></button>
+              <div className="chat-composer-bar">
+                {dictationSupported && (
+                  <button
+                    type="button"
+                    className={`chat-composer-mic ${isDictating ? "listening" : ""}`}
+                    onClick={toggleDictation}
+                    aria-label={isDictating ? "Stop dictation" : "Dictate your hair concern"}
+                    aria-pressed={isDictating}
+                    title={isDictating ? "Stop dictation" : "Dictate"}
+                  >
+                    {isDictating ? <StopIcon /> : <MicIcon />}
+                  </button>
+                )}
+                <button type="submit" className="chat-composer-send">Get my answer <ArrowIcon /></button>
+              </div>
             </div>
             <div className="hero-consult-topics" aria-label="Common hair concerns">
               {["Frizz & volume", "Colored hair", "Heat damage", "Dry & brittle"].map((topic) => (

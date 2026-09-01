@@ -228,7 +228,7 @@ export default function HomeEs() {
               <span><i /> Consulta capilar gratuita</span>
               <small>Respuestas en segundos</small>
             </div>
-            <div className="hero-consult-field">
+            <div className="chat-composer">
               <input
                 type="text"
                 value={consultQuery}
@@ -237,19 +237,21 @@ export default function HomeEs() {
                 aria-label="Describe tu preocupación capilar"
                 onChange={(event) => setConsultQuery(event.target.value)}
               />
-              {dictationSupported && (
-                <button
-                  type="button"
-                  className={`hero-consult-mic ${isDictating ? "listening" : ""}`}
-                  onClick={toggleDictation}
-                  aria-label={isDictating ? "Detener dictado" : "Dicta tu preocupación capilar"}
-                  aria-pressed={isDictating}
-                  title={isDictating ? "Detener dictado" : "Dictar"}
-                >
-                  {isDictating ? <StopIcon /> : <MicIcon />}
-                </button>
-              )}
-              <button type="submit" className="button primary">Obtener respuesta <ArrowIcon /></button>
+              <div className="chat-composer-bar">
+                {dictationSupported && (
+                  <button
+                    type="button"
+                    className={`chat-composer-mic ${isDictating ? "listening" : ""}`}
+                    onClick={toggleDictation}
+                    aria-label={isDictating ? "Detener dictado" : "Dicta tu preocupación capilar"}
+                    aria-pressed={isDictating}
+                    title={isDictating ? "Detener dictado" : "Dictar"}
+                  >
+                    {isDictating ? <StopIcon /> : <MicIcon />}
+                  </button>
+                )}
+                <button type="submit" className="chat-composer-send">Obtener respuesta <ArrowIcon /></button>
+              </div>
             </div>
             <div className="hero-consult-topics" aria-label="Preocupaciones capilares comunes">
               {["Frizz y volumen", "Cabello teñido", "Daño por calor", "Seco y quebradizo"].map((topic) => (
