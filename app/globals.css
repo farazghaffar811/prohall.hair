@@ -2391,9 +2391,9 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-chat-empty > div:last-child button { border-radius: 999px; }
 
 /* Defined ChatGPT-style borders on the hero composer */
-.chat-composer { border: 1.5px solid rgba(27, 24, 19, 0.28); }
-.chat-composer:focus-within { border-color: rgba(27, 24, 19, 0.55); }
-.hero-consult-topics button { border-color: rgba(27, 24, 19, 0.22); }
+.chat-composer { border: 2px solid rgba(27, 24, 19, 0.35); }
+.chat-composer:focus-within { border-color: var(--navy); }
+.hero-consult-topics button { border: 1.5px solid rgba(27, 24, 19, 0.3); }
 
 /* Consultation page: compact header so the chat is visible immediately */
 .consult-main { padding-top: 26px; }
