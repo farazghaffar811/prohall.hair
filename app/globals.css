@@ -2390,6 +2390,23 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
 .consult-composer > button.dictate.listening { border-color: #f0768a; background: #f0768a; color: var(--white); }
 .consult-chat-empty > div:last-child button { border-radius: 999px; }
 
+/* Defined ChatGPT-style borders on the hero composer */
+.chat-composer { border: 1.5px solid rgba(27, 24, 19, 0.28); }
+.chat-composer:focus-within { border-color: rgba(27, 24, 19, 0.55); }
+.hero-consult-topics button { border-color: rgba(27, 24, 19, 0.22); }
+
+/* Consultation page: compact header so the chat is visible immediately */
+.consult-main { padding-top: 26px; }
+.consult-intro h1 { margin: 12px 0 8px; font-size: clamp(32px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -0.035em; }
+.consult-intro > p:last-child { font-size: 14px; line-height: 1.6; }
+.consult-card { margin-top: 18px; border: 1.5px solid rgba(27, 24, 19, 0.22); }
+.consult-composer { border-width: 1.5px; border-color: rgba(27, 24, 19, 0.28); }
+.consult-composer:focus-within { border-color: rgba(27, 24, 19, 0.55); }
+@media (max-width: 680px) {
+  .consult-main { padding-top: 18px; }
+  .consult-intro h1 { font-size: 30px; }
+}
+
 /* Remove decorative circle behind product-page images */
 .product-gallery::before,
 .manual-hero-product::after { display: none; }
