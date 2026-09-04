@@ -63,10 +63,10 @@ export const products = [
     type: "Brazilian keratin treatment",
     note: "Formaldehyde-free",
     size: "300 ml / 120 ml",
-    image: "/images/burix-one-300.png",
+    image: "/images/burix-one-300-v2.png",
     variants: [
-      { label: "10.1 fl oz / 300 ml", image: "/images/burix-one-300.png" },
-      { label: "4.05 fl oz / 120 ml", image: "/images/burix-one-120.png" }
+      { label: "10.1 fl oz / 300 ml", image: "/images/burix-one-300-v2.png" },
+      { label: "4.05 fl oz / 120 ml", image: "/images/burix-one-120-v2.png" }
     ],
     tone: "mint",
     category: "Smoothing",
