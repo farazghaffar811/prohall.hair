@@ -1187,8 +1187,9 @@ footer { padding: 76px clamp(24px, 6vw, 96px) 24px; background: var(--navy); col
   .nav-mega > div > a { font-size: 13px; }
   .nav-all-products { margin-top: 10px; padding-top: 16px; }
   .mobile-nav-cta { margin-top: 24px; display: flex !important; justify-content: space-between; align-items: center; padding: 17px 19px !important; border: 0 !important; border-radius: 99px; background: var(--navy); color: var(--white); font-size: 10px !important; font-weight: 600 !important; text-transform: uppercase; letter-spacing: 0.08em; }
-  .header-actions { grid-column: 2; }
+  .header-actions { grid-column: 2; gap: 14px; }
   .header-help { display: none; }
+  .header-help.lang-switch { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; padding: 8px 12px; line-height: 1; }
   .menu-toggle { display: block; }
   .hero { grid-template-columns: 1fr; padding: 18px clamp(18px, 4vw, 34px) 28px; gap: 14px; }
   .hero-content { min-height: 590px; padding: 70px clamp(28px, 7vw, 62px) 44px; }
