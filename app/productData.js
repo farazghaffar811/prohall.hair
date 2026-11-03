@@ -170,7 +170,7 @@ export const products = [
     name: "Absolut One",
     type: "Heat protectant spray",
     note: "Daily protection",
-    image: "/images/absolut-one-v4.png",
+    image: "/images/absolut-one-v5.png",
     tone: "mist",
     category: "Finishing",
     videoUrl: "/media/absolut-one/tutorial.mp4",
